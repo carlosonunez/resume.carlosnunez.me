@@ -1,0 +1,72 @@
+#@ load("@ytt:data", "data")
+baseURL: #@ "http://eng.{}".format(data.values.dns_zone)
+languageCode: "en"
+title: "Carlos's Resume"
+theme: "hugo-devresume-theme"
+#@ if/end hasattr(data.values, "googleAnalyticsCode"):
+googleAnalytics: #@ data.values.googleAnalyticsCode
+params:
+  author: Carlos Nunez
+  description: makes production fun again.
+  primaryColor: "#54B689"
+  textPrimaryColor: "#292929"
+  summary:
+    enable: false
+  profile:
+    enable: true
+    name: Carlos Nunez
+    tagline: "SRE, Software Engineer, Consultant"
+#@ if/end hasattr(data.values, "selfieLocation"):
+    avatar: #@ data.values.selfieLocation
+  contact:
+    enable: true
+    location: Houston, TX
+    list:
+      - icon: "fas fa-phone-square"
+        url: "tel:#"
+        text: 469-382-9361
+      - icon: "fas fa-envelope-square"
+        url: "mailto:#"
+        text: "work@carlosnunez.me"
+      - icon: "fas fa-globe"
+        url: "#"
+        text: "blog.carlosnunez.me"
+  education:
+    enable: true
+    list:
+      - degree: BEng, Computer Engineering
+        university: Stevens Institute of Technology
+        dates: "2005 - 2010"
+    interests:
+      enable: true
+      list:
+        - name: Road cycling
+        - name: Fitness and weight lifting
+        - name: Beer and breweries
+        - name: Travel
+        - name: Writing
+        - name: Speaking
+  social:
+    list:
+      - icon: fab fa-github-square
+        url: //github.carlosnunez.me
+        title: "@carlosonunez"
+      - icon: fab fa-linkedin
+        url: //linkedin.carlosnunez.me
+        title: carlosinhtx
+  experience:
+    list:
+      #@ for x in data.values.experience:
+      - title: #@ x.title
+        company: #@ x.company
+        dates: #@ x.dates
+        details: #@ x.summary
+        items:
+          #@ for y in x.highlights:
+          - details: #@ y
+          #@ end
+      #@ end
+  skills:
+    list: #@ data.values.skills
+  projects:
+    list: #@ data.values.projects
