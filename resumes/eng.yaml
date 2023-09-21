@@ -1,0 +1,88 @@
+experience:
+  - title: Presales Solution Engineer
+    company: VMware
+    dates: "02/2023 - Present"
+    summary: |-
+      Provided consulting and drove the technical win for >$5MM of Tanzu ARR and Services contracts in the US Public Sector.
+    highlights: 
+      - Guided the creation of a Platform Engineering center of excellence for a major program within the US Department of Defense.
+      - Guided several engineering teams within the US Government on developing faster paths to production and more secure software supply chains.
+  - title: Staff Solutions Architect
+    company: VMware
+    dates: "12/2020 - Present"
+    summary: Executed and led consulting engagements focused on Kubernetes enablement and modern application development upskilling.
+    highlights:
+      - Paired with several application teams at a large national retailer to reduce
+        deployment times by as much as 40% while migrating to OpenShift and improving
+        codebase test coverage and release safety.
+      - Architected a comprehensive, 70+ point framework for assessing DevOps and SRE
+        capabilties at enterprise customers that reduced Platform Services onboarding
+        by several weeks.
+      - Designed and built a Cloud Foundry-like and Kubernetes-agnostic developer
+        platform in Bash that enabled developers within the US Government to go from
+        idea to production on their own Kubernetes clusters with a single manifest
+        file in minutes.
+  - title: Senior Cloud Architect
+    company: 10th Magnitude
+    dates: "6/2020-11/2020"
+    summary: |-
+      Consulted engineering leaders at Fortune 100s on migrating and rearchitecting mission-critical applications
+      into Azure.
+    highlights:
+      - Served as a principal consultant for a large retail provider through their
+        migration onto Azure Kubernetes Service from OpenShift.
+      - Conducted design sessions and discovery workshops for onboarding applications
+        being refactored to cloud-native designs.
+      - Reduced deployment time of the company's leading Landing Zone service by 40%
+        through automation and authoring additional tooling.
+  - title: Technical Principal
+    company: Contino
+    dates: "5/2017-6/2020"
+    summary: |-
+      Executed and led small consulting teams in helping the world's most highly-regulated
+      organizations embrace DevOps, upskill engineering capabilities and ship customer value faster
+      and easier.
+    highlights:
+      - Lead several engagements for quickly enabling and upskilling large development
+        teams on foundational DevOps and Reliability Engineering topics.
+      - Specialized in reducing deployment times into production environments by up to
+        2000% at large and heavily-regulated enterprises within the FSI and Retail
+        sectors.
+      - Expanded the business into US Central and West regions through
+        proposals, SoW generation, discovery workshops and pre-sales efforts (blogs
+        and conference talks).
+      - Grew senior consultants into Techncial Principals through coaching and
+        mentorship.
+skills:
+- title: Cloud
+  items:
+    - AWS
+    - Azure
+    - vSphere
+    - Serverless
+- title: Containers
+  items:
+    - Kubernetes
+    - EKS
+    - Docker
+    - Developer platforms
+- title: Software Engineering
+  items:
+    - Golang
+    - Bash
+    - Ruby
+- title: SRE
+  items:
+    - Cloudtrail
+    - Jaeger
+    - Grafana
+    - Prometheus
+    - Selenium
+    - Terraform
+    - Ansible
+    - Chef
+projects:
+  - title: International Financial Services Company
+    tagline: "Reduced a 400 day+ path to production by 17 days through building cross-functional teams, value stream mapping and tracer bullets"
+  - title: National Fashion Retailer
+    tagline: Developed a dojo-style enablement framework for migrating legacy applications into OpenShift in weeks instead of months
