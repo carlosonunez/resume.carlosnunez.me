@@ -1,0 +1,53 @@
+  # CONFIGURATION OPTIONS
+  # =====================
+  # dns.zone: The AWS Route 53 zone to host resumes in. Must exist prior to running `scripts/deploy`.
+  # dns.root: The root domain to host resumes in within $zone.
+  # resume.default: The persona the user will see when they visit `resume.${dns.root}.${dns.zone}`
+  # resume.personas: A list of "personas" to serve; see "Personas" note below.
+  # resume.personas.name: The name of the "persona"
+  # resume.personas.yaml: The name of the YAML file in `resumes` for this persona.
+  # resume.personas.record: The record prefix to add to the DNS record for that specific persona.
+  # 
+  # EXAMPLE
+  # ========
+  # The following:
+  #
+  # ```yaml
+  # dns:
+  #   zone: example.com
+  #   root: resume
+  # resume:
+  #   default_persona: foo
+  #   personas:
+  #   - name: foo
+  #     yaml: foo
+  # ```
+  #
+  # would produce two A records that point to the following resume YAMLs:
+  #
+  # - resume.example.com => ./resumes/foo.yaml
+  # - foo.resume.example.com => ./resumes/foo.yaml
+  #
+  # PERSONAS
+  # =========
+  #
+  # "Personas" are resumes that highlight different views of your experience.
+  #
+  # This can be useful for these use cases:
+  #
+  # - A/B testing applications
+  # - Applying to multiple different opportunities at one company
+  # - Generating a resume for a "reach" position, like Sr. Staff (if you're currently Senior)
+dns:
+  zone: carlosnunez.me
+  root: resume
+resume:
+  default_persona: consulting
+  personas:
+  # type: The "type" of resume. Useful if you want to show different personas to different
+  #       employers.
+  - name: consulting
+    yaml: consulting
+  - name: dev
+    yaml: eng
+    record: eng

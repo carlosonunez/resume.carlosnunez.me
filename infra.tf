@@ -20,21 +20,16 @@ provider "aws" {
 }
 
 locals {
-  zone = "carlosnunez.me"
-  resumes = {
-    default = {
-      record_name = "resume"
-      file_name   = "consulting"
-    }
-    dev = {
-      record_name = "eng.resume"
-      file_name   = "eng"
-    }
-    consulting = {
-      record_name = "consulting.resume"
-      file_name   = "consulting"
-    }
-  }
+  config = yamldecode(file("./config.yaml"))
+  zone = local.config.dns.zone
+  resume_personas = {for resume in local.config.resume.personas : resume.name => tomap({
+      record_name = "${try(resume.record, resume.name)}.${local.config.dns.root}",
+      file_name = resume.yaml
+  })}
+  resumes = merge(local.resume_personas, { default = {
+    record_name = "resume",
+    file_name = local.resume_personas[local.config.resume.default_persona].file_name
+  }})
 }
 
 module "resumes" {

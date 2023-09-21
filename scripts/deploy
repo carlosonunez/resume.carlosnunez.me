@@ -26,7 +26,7 @@ resume_types() {
   find "$(dirname "$0")/../resumes" \
     -maxdepth 1 \
     -type f \
-    -not -name '*wip*' \
+    -not -name '*wip*' -a -not -name '*example*'\
     -exec basename {} \; |
     sed 's/.yaml$//'
 }
