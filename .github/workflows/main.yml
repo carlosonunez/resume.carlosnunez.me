@@ -11,10 +11,7 @@ on:
       - 'docker-compose.yml'
       - 'env.gpg'
       - 'scripts/deploy'
-      - '.github/**'
       - '.kickCI/**'
-    tags:
-      - '[0-9]{4}.[0-9]{2}.[0-9]{2}'
 
 jobs:
   update_website:
