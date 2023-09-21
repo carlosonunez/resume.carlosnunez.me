@@ -3,14 +3,14 @@ name: Update resume.carlosnunez.me
 on:
   push:
     paths:
-      - 'resumes/'
+      - 'resumes/**'
       - 'config.toml'
       - 'Dockerfile'
       - 'docker-compose.yml'
       - 'env.gpg'
       - 'scripts/deploy'
-      - '.github/'
-      - '.kickCI/'
+      - '.github/**'
+      - '.kickCI/**'
     tags:
       - '[0-9]{4}.[0-9]{2}.[0-9]{2}'
 
