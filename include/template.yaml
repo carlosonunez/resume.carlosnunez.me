@@ -1,7 +1,7 @@
 #@ load("@ytt:data", "data")
-#@ if data.values.inTest == true
+#@ if hasattr(data.values, "inTest") and data.values.inTest == True:
 baseURL: http://localhost:8080
-#@ else
+  #@ else:
 baseURL: #@ "https://{}.{}".format(data.values.resume_type, data.values.dns_zone)
 #@ end
 languageCode: "en"
@@ -83,6 +83,16 @@ params:
         - details: #@ y
           #@ end
       #@ end
+  #@ if hasattr(data.values,"showCourses") and data.values.showCourses == True:
+  courses:
+    enable: true
+    list:
+      #@ for x in data.values.courses:
+      - url: #@ x.url
+        name: #@ x.name
+        year: #@ x.year
+      #@ end
+  #@ end
   projects:
     enable: true
     list: #@ data.values.projects

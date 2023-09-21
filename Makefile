@@ -11,10 +11,13 @@ export DNS_ZONE
 
 .PHONY: test \
 				build \
+				pdf \
 				resume-make \
 				resume-eng-make \
 				.fetch-resume \
-				.generate-site-config
+				.generate-site-config \
+				.ensure-resume-type \
+				.clean
 
 resume-make:
 	RESUME_FILE=consulting $(MAKE) build
@@ -25,24 +28,29 @@ resume-eng-make:
 resume-wip-make:
 	RESUME_FILE=wip $(MAKE) build
 
-build: .fetch-resume .generate-config-toml
+build: .clean .ensure-resume-type .fetch-resume .generate-config-toml
 build:
-	if test -z "$$RESUME_FILE" ; \
-	then \
-		>&2 echo "ERROR: Please define the type of resume to make, like 'consulting' or 'eng'"; \
-		exit 1; \
-	fi; \
 	export RESUME_FILE; \
 	output_dir=$(PWD)/output/$$RESUME_FILE; \
 	test -d "$$(dirname "$$output_dir")" || mkdir -p "$$(dirname "$$output_dir")"; \
 	test -d "$(PWD)/pdf" || mkdir -p "$(PWD)/pdf"; \
 	test -d "$$output_dir" && rm -rf "$$output_dir"; \
+	trap 'rc=$$?; docker-compose down; exit $$?' INT HUP EXIT; \
 	docker-compose run --rm generate-resume && \
-		docker-compose run --build --rm generate-pdf
+		docker-compose up --wait -d see-resume
 
-test: .fetch-resume .generate-config-toml
+test: .ensure-resume-type .fetch-resume .generate-config-toml
 test:
-	docker-compose run --rm see-resume
+	docker-compose down; \
+	docker-compose up --wait -d see-resume && \
+		>&2 echo "INFO: Resume is now available at http://localhost:8080"
+
+.ensure-resume-type:
+	if test -z "$$RESUME_FILE" ; \
+	then \
+		>&2 echo "ERROR: Please define the type of resume to make, like 'consulting' or 'eng'"; \
+		exit 1; \
+	fi; \
 
 .fetch-resume:
 	test -d "$(PWD)/theme" && exit 0; \
@@ -51,37 +59,6 @@ test:
 
 .generate-config-toml:
 	docker-compose run --rm generate-resume-config > $(PWD)/config.toml
-	
-apply_pre_transforms:
-	sh /scripts/apply_pre_transforms.sh "$(RESUME_FILE)"
 
-pdf: init
-	FILE_NAME=`basename $(RESUME_FILE) | sed 's/.md//g'`; \
-	echo "[PDF] Resume being generated: $$FILE_NAME.html"; \
-	weasyprint -v -p $(OUT_DIR)/$$FILE_NAME.html $(OUT_DIR)/$$FILE_NAME.pdf;
-
-html: init
-	FILE_NAME=$$(basename $(RESUME_FILE) | sed 's/.md//g'); \
-	echo "[HTML] Resume being generated: $${FILE_NAME}.html"; \
-	pandoc --standalone --include-in-header include/header.html \
-		--lua-filter=pdc-links-target-blank.lua \
-		--from markdown --to html \
-		--metadata pagetitle=$(RESUME_TILE) \
-		--output $(OUT_DIR)/$$FILE_NAME.html $(IN_DIR)/$${FILE_NAME}_post.md &&  \
-	sh /scripts/apply_transforms.sh "$(IN_DIR)/$${FILE_NAME}_post.md"
-
-init: dir version
-
-dir:
-	mkdir -p $(OUT_DIR)
-
-version:
-	PANDOC_VERSION=`pandoc --version | head -1 | cut -d' ' -f2 | cut -d'.' -f1`; \
-	if [ "$$PANDOC_VERSION" -eq "2" ]; then \
-		SMART=-smart; \
-	else \
-		SMART=--smart; \
-	fi \
-
-clean:
-	rm -f $(OUT_DIR)/*
+.clean:
+	rm -rf $(PWD)/output/*

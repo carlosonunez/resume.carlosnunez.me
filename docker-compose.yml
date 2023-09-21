@@ -17,43 +17,6 @@ services:
     volumes:
       - $PWD/theme:/site/themes/vendored-theme
       - $PWD/config.toml:/site/config.toml
-  generate-resume:
-    extends: hugo
-    volumes:
-      - $PWD/output:/output
-    command:
-      - --minify
-      - -d
-      - /output/$RESUME_FILE
-  generate-pdf:
-    image: surnet/alpine-wkhtmltopdf:3.18.0-0.12.6-full
-    network_mode: host
-    volumes:
-      - $PWD/output:/output
-    command:
-      - --viewport-size
-      - "1366x768"
-      - http://localhost:8080
-      - /output/${RESUME_FILE}/resume.pdf
-  see-resume:
-    extends: hugo
-    network_mode: host
-    command:
-      - server
-      - --bind=0.0.0.0
-      - --port=8080
-  generate-resume-config:
-    extends: resume
-    entrypoint: sh
-    working_dir: /work
-    volumes:
-      - $PWD/resumes:/work
-      - $PWD/include/template.yaml:/template.yaml
-    command:
-      - -c
-      - "set -eo pipefail; \
-         ytt -v dns_zone=$DNS_ZONE -v resume_type=$RESUME_FILE -f /template.yaml \
-        --data-values-file './${RESUME_FILE}.yaml' | yj -yt"
   gpg:
     build:
       dockerfile: gpg.Dockerfile
@@ -116,3 +79,47 @@ services:
       - "$AWS_STS_EXTERNAL_ID"
       - --output
       - yaml
+  generate-resume:
+    extends: hugo
+    volumes:
+      - $PWD/output:/output
+    command:
+      - --minify
+      - -d
+      - /output/$RESUME_FILE
+  generate-pdf:
+    build:
+      dockerfile: pdf.Dockerfile
+      context: $PWD/include/pdf
+    network_mode: host
+    volumes:
+      - $PWD/output:/output
+    command:
+      - -u
+      - http://localhost:8080
+      - -o
+      - /output/${RESUME_FILE}/resume.pdf
+      - --media
+      - print
+  see-resume:
+    extends: hugo
+    network_mode: host
+    command:
+      - server
+      - --bind=0.0.0.0
+      - --port=8080
+  generate-resume-config:
+    extends: resume
+    entrypoint: sh
+    working_dir: /work
+    volumes:
+      - $PWD/resumes:/work
+      - $PWD/include/template.yaml:/template.yaml
+    command:
+      - -c
+      - "set -eo pipefail; \
+         ytt -v dns_zone=$DNS_ZONE \
+          -v resume_type=$RESUME_FILE \
+          --data-values-file './${RESUME_FILE}.yaml'  \
+          --data-values-file './partials' \
+          -f /template.yaml | yj -yt"

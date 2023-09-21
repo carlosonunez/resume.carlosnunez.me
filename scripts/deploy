@@ -22,11 +22,23 @@ dry_run_enabled() {
   test "$(echo "$DRY_RUN" | tr '[:upper:]' '[:lower:]')" == "true"
 }
 
+resume_types() {
+  find "$(dirname "$0")/../resumes" \
+    -maxdepth 1 \
+    -type f \
+    -not -name '*.wip*' \
+    -exec basename {} \; |
+    sed 's/.yaml$//'
+}
+
 create_resume() {
   if ! dry_run_enabled
   then
-    exec_docker_compose run --rm resume-make
-    exec_docker_compose run --rm resume-eng-make
+    for resume in $(resume_types)
+    do
+      >&2 echo "INFO: Generating [$resume] resume assets; hang on."
+      RESUME_FILE="$resume" make build
+    done
   else
     >&2 echo "WARNING: Skipping because dry run is enabled."
   fi
