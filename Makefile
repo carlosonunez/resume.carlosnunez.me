@@ -12,12 +12,13 @@ export RESUME_FILE
 export DNS_ZONE
 
 .PHONY: clean test build pdf \
-				.fetch-resume .generate-site-config .ensure-resume-type .current-version .verify-build
+				.fetch-resume .generate-site-config .ensure-resume-type .current-version .verify-build \
+				.build-images
 
 clean:
 	rm -rf $(PWD)/output/*
 
-build: .ensure-resume-type .fetch-resume .generate-config-toml
+build: .build-images .ensure-resume-type .fetch-resume .generate-config-toml
 build:
 	export RESUME_FILE; \
 	output_dir=$(PWD)/output/$$RESUME_FILE; \
@@ -63,3 +64,5 @@ test:
 	>/dev/null find "$(PWD)/output/$$RESUME_FILE/assets/css/devresume"*".css" && exit 0; \
 	>&2 echo "ERROR: CSS not generated."; \
 
+.build-images:
+	$(DOCKER_COMPOSE) build
