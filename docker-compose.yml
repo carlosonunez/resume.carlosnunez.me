@@ -54,14 +54,14 @@ services:
       - --passphrase=$RESUME_PASSWORD
       - --output=resume_wip.gpg
       - --symmetric
-      - resume_wip.md
+      - $PWD/resumes/wip.yaml
   decrypt-resume:
     extends: gpg
     command:
       - '--decrypt'
       - '--batch'
       - "--passphrase=$RESUME_PASSWORD"
-      - '--output=resume_wip.md'
+      - '--output=$PWD/resumes/wip.yaml'
       - resume_wip.gpg
   get-temp-aws-credentials:
     env_file: .env
