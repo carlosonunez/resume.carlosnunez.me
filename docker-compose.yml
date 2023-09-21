@@ -114,7 +114,7 @@ services:
       - --port=8080
   generate-resume-config:
     extends: resume
-    entrypoint: sh
+    entrypoint: bash
     working_dir: /work
     volumes:
       - $PWD/resumes:/work

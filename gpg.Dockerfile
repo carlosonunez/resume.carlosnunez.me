@@ -1,6 +1,6 @@
-FROM ubuntu:jammy
+FROM alpine:3.14
 
-RUN apt -y update
-RUN apt -y install gpg
+RUN apk update
+RUN apk add gpg
 
 ENTRYPOINT [ "gpg" ]
