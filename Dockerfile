@@ -5,9 +5,8 @@ RUN if arch | grep -Eq 'arm|aarch'; \
     fi; \
     chmod +x /tmp/yj
 
-FROM busybox
+FROM klakegg/hugo:0.111.3-busybox
 COPY --from=gerritk/ytt:0.45.0 /usr/bin/ytt /bin/ytt
-COPY --from=klakegg/hugo:0.101.0 /bin/hugo /bin/hugo
 COPY --from=yj /tmp/yj /bin/yj
 
 ENTRYPOINT [ "hugo" ]
