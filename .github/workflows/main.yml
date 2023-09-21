@@ -2,9 +2,15 @@
 name: Update resume.carlosnunez.me
 on:
   push:
-    paths-ignore:
-      - 'resume-wip.gpg'
-      - 'docker-compose*.yml'
+    paths:
+      - 'resumes/'
+      - 'config.toml'
+      - 'Dockerfile'
+      - 'docker-compose.yml'
+      - 'env.gpg'
+      - 'scripts/deploy'
+    tags-ignore:
+      - '**'
 
 jobs:
   update_website:
