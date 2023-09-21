@@ -1,0 +1,90 @@
+#@ load("@ytt:data", "data")
+#@ if data.values.inTest == true
+baseURL: http://localhost:8080
+#@ else
+baseURL: #@ "https://{}.{}".format(data.values.resume_type, data.values.dns_zone)
+#@ end
+languageCode: "en"
+title: "Carlos's Resume"
+theme: "vendored-theme"
+publishDir: /output
+#@ if/end hasattr(data.values, "googleAnalyticsCode"):
+googleAnalytics: #@ data.values.googleAnalyticsCode
+params:
+  author: Carlos Nunez
+  description: makes production fun again.
+  primaryColor: "#5475b6"
+  textPrimaryColor: "#292929"
+  summary:
+    enable: false
+  profile:
+    enable: true
+    name: Carlos Nunez
+    tagline: Seasoned DevOps, SRE and Software Consultant
+#@ if/end hasattr(data.values, "selfieLocation"):
+    avatar: #@ data.values.selfieLocation
+  contact:
+    enable: true
+    location: "1919 Taylor Street F, Houston TX, 77007"
+    list:
+      - icon: "fas fa-phone-square"
+        url: "tel:#"
+        text: 469-382-9361
+      - icon: "fas fa-envelope-square"
+        url: "mailto:#"
+        text: "work@carlosnunez.me"
+      - icon: "fas fa-globe"
+        url: "#"
+        text: "blog.carlosnunez.me"
+  education:
+    enable: true
+    list:
+      - degree: BEng, Computer Engineering
+        university: Stevens Institute of Technology
+        dates: "2005 - 2010"
+  interests:
+    enable: true
+    list:
+      - name: Road cycling
+      - name: Fitness and weight lifting
+      - name: Beer and breweries
+      - name: Travel
+      - name: Writing
+      - name: Speaking
+  social:
+    enable: true
+    list:
+      - icon: fab fa-github-square
+        url: //github.carlosnunez.me
+        title: "@carlosonunez"
+      - icon: fab fa-linkedin
+        url: //linkedin.carlosnunez.me
+        title: carlosinhtx
+  experience:
+    enable: true
+    list:
+      #@ for x in data.values.experience:
+      - title: #@ x.title
+        company: #@ x.company
+        dates: #@ x.dates
+        details: #@ x.summary
+        items:
+          #@ for y in x.highlights:
+          - details: #@ y
+          #@ end
+      #@ end
+  skills:
+    enable: true
+    list:
+      #@ for x in data.values.skills:
+      - title: #@ x.title
+      - items:
+          #@ for y in x.items:
+        - details: #@ y
+          #@ end
+      #@ end
+  projects:
+    enable: true
+    list: #@ data.values.projects
+  footer:
+    copyright: Carlos Nunez
