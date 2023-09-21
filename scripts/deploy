@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+if test -e "$(dirname "$0")/../.env)"
+then
+  export $(grep -Ev '^#' "$(dirname "$0")/../.env)" | xargs -0)
+fi
+
+DRY_RUN="${DRY_RUN:-false}"
+export BUILD_ARCH="${BUILD_ARCH:-amd64}"
+export ENV_PASSWORD="${ENV_PASSWORD?Please provide an environment password.}"
+
+exec_docker_compose() {
+  if test -f ./docker-compose
+  then
+    ./docker-compose "$@"
+  else
+    docker-compose "$@"
+  fi
+}
+
+dry_run_enabled() {
+  test "$(echo "$DRY_RUN" | tr '[:upper:]' '[:lower:]')" == "true"
+}
+
+create_resume() {
+  if ! dry_run_enabled
+  then
+    exec_docker_compose run --rm resume-make
+    exec_docker_compose run --rm resume-eng-make
+  else
+    >&2 echo "WARNING: Skipping because dry run is enabled."
+  fi
+}
+
+get_aws_credentials() {
+  output=$(ROLE_SESSION_SUFFIX=$(tr -dc 'a-zA-Z0-9' <<< /dev/urandom | head -c 8) \
+    exec_docker_compose run -T --rm get-temp-aws-credentials)
+  access_key=$(echo "$output" | grep AccessKeyId | cut -f2 -d ':' | tr -d ' ')
+  secret_key=$(echo "$output" | grep SecretAccessKey | cut -f2 -d ':' | tr -d ' ')
+  session_token=$(echo "$output" | grep SessionToken | cut -f2 -d ':' | tr -d ' ')
+  export AWS_ACCESS_KEY_ID=$access_key
+  export AWS_SECRET_ACCESS_KEY=$secret_key
+  export AWS_SESSION_TOKEN=$session_token
+}
+
+deploy_to_aws() {
+  if dry_run_enabled
+  then
+    exec_docker_compose run --rm plan
+  else
+    exec_docker_compose run --rm apply
+  fi
+}
+
+create_resume && get_aws_credentials && deploy_to_aws

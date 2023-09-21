@@ -1,0 +1,118 @@
+version: '2.2'
+services:
+  awscli:
+    image: amazon/aws-cli:2.2.9
+    env_file: .env
+  resume:
+    build:
+      context: .
+    entrypoint: sh
+    environment:
+      - DNS_ZONE
+      - RESUME_FILE
+  hugo:
+    extends: resume
+    entrypoint: hugo
+    working_dir: /site
+    volumes:
+      - $PWD/theme:/site/themes/vendored-theme
+      - $PWD/config.toml:/site/config.toml
+  generate-resume:
+    extends: hugo
+    volumes:
+      - $PWD/output:/output
+    command:
+      - --minify
+      - -d
+      - /output/$RESUME_FILE
+  generate-pdf:
+    image: surnet/alpine-wkhtmltopdf:3.18.0-0.12.6-full
+    network_mode: host
+    volumes:
+      - $PWD/output:/output
+    command:
+      - --viewport-size
+      - "1366x768"
+      - http://localhost:8080
+      - /output/${RESUME_FILE}/resume.pdf
+  see-resume:
+    extends: hugo
+    network_mode: host
+    command:
+      - server
+      - --bind=0.0.0.0
+      - --port=8080
+  generate-resume-config:
+    extends: resume
+    entrypoint: sh
+    working_dir: /work
+    volumes:
+      - $PWD/resumes:/work
+      - $PWD/include/template.yaml:/template.yaml
+    command:
+      - -c
+      - "set -eo pipefail; \
+         ytt -v dns_zone=$DNS_ZONE -v resume_type=$RESUME_FILE -f /template.yaml \
+        --data-values-file './${RESUME_FILE}.yaml' | yj -yt"
+  gpg:
+    build:
+      dockerfile: gpg.Dockerfile
+    volumes:
+      - $PWD:/app
+    working_dir: /app
+    entrypoint:
+      - gpg
+  terraform:
+    image: carlosnunez/terraform:1.3.0
+    env_file: .env
+    environment:
+      - TF_CLI_ARGS_plan="-input=false"
+      - TF_CLI_ARGS_apply="-auto-approve"
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
+      - AWS_REGION
+      - AWS_SESSION_TOKEN
+    volumes:
+      - $PWD:/app
+    working_dir: /app
+    entrypoint: 
+      - ./scripts/execute_terraform.sh
+  plan:
+    extends: terraform
+    command: plan
+  apply:
+    extends: terraform
+    command: apply
+  encrypt-resume:
+    extends: gpg
+    command:
+      - --batch
+      - --yes
+      - --passphrase=$RESUME_PASSWORD
+      - --output=resume_wip.gpg
+      - --symmetric
+      - resume_wip.md
+  decrypt-resume:
+    extends: gpg
+    command:
+      - '--decrypt'
+      - '--batch'
+      - "--passphrase=$RESUME_PASSWORD"
+      - '--output=resume_wip.md'
+      - resume_wip.gpg
+  get-temp-aws-credentials:
+    env_file: .env
+    environment:
+      - ROLE_SESSION_SUFFIX
+    extends: awscli
+    command:
+      - sts
+      - assume-role
+      - --role-arn
+      - "$AWS_ROLE_ARN"
+      - --role-session-name
+      - "resume-deploy-$ROLE_SESSION_SUFFIX"
+      - --external-id
+      - "$AWS_STS_EXTERNAL_ID"
+      - --output
+      - yaml
