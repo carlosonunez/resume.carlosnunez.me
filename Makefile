@@ -6,12 +6,13 @@ THEME_URL = https://github.com/carlosonunez/hugo-devresume-theme
 THEME_VERSION = 2023.09.21
 DNS_ZONE ?= resume.carlosnunez.me
 DOCKER_COMPOSE = docker-compose --log-level ERROR
+PERCENT := %
 
 export RESUME_FILE
 export DNS_ZONE
 
 .PHONY: clean test build pdf \
-				.fetch-resume .generate-site-config .ensure-resume-type
+				.fetch-resume .generate-site-config .ensure-resume-type .current-version
 
 clean:
 	rm -rf $(PWD)/output/*
@@ -22,7 +23,6 @@ build:
 	output_dir=$(PWD)/output/$$RESUME_FILE; \
 	test -d "$$(dirname "$$output_dir")" || mkdir -p "$$(dirname "$$output_dir")"; \
 	test -d "$(PWD)/pdf" || mkdir -p "$(PWD)/pdf"; \
-	trap 'rc=$$?; $(DOCKER_COMPOSE) down; exit $$?' INT HUP EXIT; \
 	$(DOCKER_COMPOSE) run --rm generate-resume
 
 test: .ensure-resume-type .fetch-resume .generate-config-toml
@@ -44,5 +44,9 @@ test:
 	git clone --branch "$(THEME_VERSION)" "$(THEME_URL)" "$(PWD)/theme"
 
 .generate-config-toml:
+	export VERSION=$$($(MAKE) .current-version); \
 	$(DOCKER_COMPOSE) run --rm generate-resume-config > $(PWD)/config.toml
+
+.current-version:
+	echo $$(git log -1 --format='$(PERCENT)h' $(PWD)/resumes);
 

@@ -11,6 +11,9 @@ publishDir: /output
 #@ if/end hasattr(data.values, "googleAnalyticsCode"):
 googleAnalytics: #@ data.values.googleAnalyticsCode
 params:
+  github:
+    repo: https://github.com/carlosonunez/resume.carlosnunez.me
+    version: #@ data.values.version
   author: Carlos Nunez
   description: makes production fun again.
   primaryColor: "#5475b6"

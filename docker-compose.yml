@@ -1,3 +1,4 @@
+# TIP: Search for 'start' then jump to the next result to go to resume-generating steps.
 version: '2.2'
 services:
   awscli:
@@ -10,6 +11,7 @@ services:
     environment:
       - DNS_ZONE
       - RESUME_FILE
+      - VERSION
   hugo:
     extends: resume
     entrypoint: hugo
@@ -79,6 +81,7 @@ services:
       - "$AWS_STS_EXTERNAL_ID"
       - --output
       - yaml
+# start
   generate-resume:
     extends: hugo
     volumes:
@@ -87,6 +90,7 @@ services:
       - --minify
       - -d
       - /output/$RESUME_FILE
+
   generate-pdf:
     build:
       dockerfile: pdf.Dockerfile
@@ -120,6 +124,7 @@ services:
       - "set -eo pipefail; \
          ytt -v dns_zone=$DNS_ZONE \
           -v resume_type=$RESUME_FILE \
+          -v version=$VERSION \
           --data-values-file './${RESUME_FILE}.yaml'  \
           --data-values-file './partials' \
           -f /template.yaml | yj -yt"
