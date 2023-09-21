@@ -27,7 +27,9 @@ jobs:
           version: 2.21.0
 
       - name: Decrypt environment file
-        run: docker-compose -f docker-compose.ci.yml run --rm decrypt-env
+        run: |-
+          echo "Env password: ${{ secrets.env_file_encryption_key }}"
+          docker-compose -f docker-compose.ci.yml run --rm decrypt-env
         env:
           ENV_PASSWORD: ${{ secrets.env_file_encryption_key }}
 
