@@ -3,7 +3,7 @@
 Generates resumes from a convenient YAML-based DSL. A fine example of YAML
 engineering. 👷🏾
 
-![](assets/screenshot.png|width=50)
+![](https://github.com/carlosonunez/resume.carlosnunez.me/blob/main/assets/screenshot.png|width=50)
 
 ## Features
 
