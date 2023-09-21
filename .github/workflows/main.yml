@@ -2,6 +2,8 @@
 name: Update resume.carlosnunez.me
 on:
   push:
+    branches:
+      - main
     paths:
       - 'resumes/**'
       - 'config.toml'
