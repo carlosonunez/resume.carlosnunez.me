@@ -29,11 +29,11 @@ resource "aws_s3_object" "resume" {
     aws_s3_bucket_public_access_block.resume_bucket,
     aws_s3_bucket_ownership_controls.resume_bucket
   ]
-  for_each     = local.resume_bucket_keys
+  for_each     = fileset("./output/${var.resume_file_name}", "**/*.*")
   bucket       = aws_s3_bucket.resume.id
   key          = each.value
-  source       = "./output/${each.key}"
-  etag         = filemd5("./output/${each.key}")
+  source       = "./output/${var.resume_file_name}/${each.key}"
+  etag         = filemd5("./output/${var.resume_file_name}/${each.key}")
   acl          = "public-read"
-  content_type = endswith(each.key, "html") ? "text/html" : "application/pdf"
+  content_type  = lookup(local.mime_types, split(".", each.value)[length(split(".", each.value)) - 1])
 }

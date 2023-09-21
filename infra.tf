@@ -24,15 +24,15 @@ locals {
   resumes = {
     default = {
       record_name = "resume"
-      file_name   = "resume"
+      file_name   = "consulting"
     }
     dev = {
       record_name = "eng.resume"
-      file_name   = "resume_eng"
+      file_name   = "eng"
     }
     consulting = {
       record_name = "consulting.resume"
-      file_name   = "resume"
+      file_name   = "consulting"
     }
   }
 }
