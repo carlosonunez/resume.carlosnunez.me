@@ -1,0 +1,56 @@
+# showCourses: Shows any online courses you've made, like those on Udemy, A Cloud Guru or
+# LinkedIn Learning.
+showCourses: false
+
+# experience: Your experience, perfectly distilled into a lifeless YAML array.
+#             You can create as many of these as you'd like.
+experience:
+  # company: The company you worked for.
+  - company: Contoso
+    # title: The title you had at that company.
+    title: Senior Staff YAML Engineer
+    # dates: Dates you worked at that company, ideally in "MM/YYYY - MM/YYYY" format.
+    dates: "02/2015 - Present"
+    # summary: A one-liner explaining what you did there. Make it pop!
+    summary: |-
+      Expert in enterprise, low-latency and highly-scalable YAML generation solutions.
+    # highlights: A list of accomplishments that you're proud of, ideally one short sentence each.
+    highlights:
+      - Improved YAML generation pipeline performance within the `yaml` Golang package by 42%.
+      - Mentored junior and mid-level YAML engineers.
+      - Created this resume when the company went public.
+  - company: Fairwinds
+    # title: The title you had at that company.
+    title: Staff YAML Engineer
+    # dates: Dates you worked at that company, ideally in "MM/YYYY - MM/YYYY" format.
+    dates: "02/2010 - 02/2015"
+    # summary: A one-liner explaining what you did there. Make it pop!
+    summary: |-
+      Expert in enterprise, low-latency and highly-scalable YAML generation solutions.
+    # highlights: A list of accomplishments that you're proud of, ideally one short sentence each.
+    highlights:
+      - _rest of your experience..._
+# skills: A list of single words that describes "the value that you can bring to your employer."
+#         (i.e. a list of keywords to pass through the company's ATS.)
+skills:
+  # title: A category for a set of skills.
+- title: YAML
+  # items: Your skills; one word per line.
+  items:
+    - Tokenization
+    - Parsing
+    - Transpiling
+    - Pipeline performance
+- title: Sr Staff stuff
+  items:
+    - AWS
+    - Github Actions
+    - Kubernetes
+    - Mentorship
+    - MS Excel
+# projects: A list of projects you maintain or contribute to.
+projects:
+  - title: Mozilla Firefox
+    tagline: Sometimes contributes to Gecko
+  - title: Golang
+    tagline: Mostly hacky contributions.
