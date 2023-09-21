@@ -3,3 +3,15 @@ config.toml
 public
 output
 .env
+*.log
+*.swo
+*.swp
+output/
+.terraform
+env.yaml
+.env
+resume_post.md
+*_post.md
+resume_wip.md
+resume_wip*.md
+.terraform.lock.hcl
