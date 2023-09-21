@@ -12,5 +12,7 @@ locals {
     json  = "application/json"
     xml = "application/xml"
     pdf = "application/pdf"
+    ico = "image/x-icon"
+    png = "image/png"
   }
 }

@@ -12,9 +12,9 @@ export ENV_PASSWORD="${ENV_PASSWORD?Please provide an environment password.}"
 exec_docker_compose() {
   if test -f ./docker-compose
   then
-    ./docker-compose "$@"
+    ./docker-compose --log-level ERROR "$@"
   else
-    docker-compose "$@"
+    docker-compose --log-level ERROR "$@"
   fi
 }
 
@@ -26,22 +26,18 @@ resume_types() {
   find "$(dirname "$0")/../resumes" \
     -maxdepth 1 \
     -type f \
-    -not -name '*.wip*' \
+    -not -name '*wip*' \
     -exec basename {} \; |
     sed 's/.yaml$//'
 }
 
 create_resume() {
-  if ! dry_run_enabled
-  then
-    for resume in $(resume_types)
-    do
-      >&2 echo "INFO: Generating [$resume] resume assets; hang on."
-      RESUME_FILE="$resume" make build
-    done
-  else
-    >&2 echo "WARNING: Skipping because dry run is enabled."
-  fi
+  make clean
+  for resume in $(resume_types)
+  do
+    >&2 echo "INFO: Generating [$resume] resume assets; hang on."
+    RESUME_FILE="$resume" make build
+  done
 }
 
 get_aws_credentials() {
