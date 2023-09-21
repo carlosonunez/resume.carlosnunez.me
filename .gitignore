@@ -15,3 +15,4 @@ resume_post.md
 resume_wip.md
 resume_wip*.md
 .terraform.lock.hcl
+resumes/wip*
