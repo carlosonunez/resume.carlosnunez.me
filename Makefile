@@ -12,7 +12,7 @@ export RESUME_FILE
 export DNS_ZONE
 
 .PHONY: clean test build pdf \
-				.fetch-resume .generate-site-config .ensure-resume-type .current-version
+				.fetch-resume .generate-site-config .ensure-resume-type .current-version .verify-build
 
 clean:
 	rm -rf $(PWD)/output/*
@@ -23,7 +23,8 @@ build:
 	output_dir=$(PWD)/output/$$RESUME_FILE; \
 	test -d "$$(dirname "$$output_dir")" || mkdir -p "$$(dirname "$$output_dir")"; \
 	test -d "$(PWD)/pdf" || mkdir -p "$(PWD)/pdf"; \
-	$(DOCKER_COMPOSE) run --rm generate-resume
+	$(DOCKER_COMPOSE) run --rm generate-resume && \
+		$(MAKE) .verify-build
 
 test: .ensure-resume-type .fetch-resume .generate-config-toml
 test:
@@ -49,4 +50,16 @@ test:
 
 .current-version:
 	echo $$(git log -1 --format='$(PERCENT)h' $(PWD)/resumes);
+
+.verify-build: .ensure-resume-type
+.verify-build:
+	for file in index.html index.xml; \
+	do \
+		f="$(PWD)/output/$$RESUME_FILE/$$file"; \
+		test -f "$$f" && continue; \
+		>&2 echo "ERROR: Required file post-build is missing: $$f"; \
+		exit 1; \
+	done;
+	>/dev/null find "$(PWD)/output/$$RESUME_FILE/assets/css/devresume"*".css" && exit 0; \
+	>&2 echo "ERROR: CSS not generated."; \
 

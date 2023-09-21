@@ -121,7 +121,7 @@ services:
       - $PWD/include/template.yaml:/template.yaml
     command:
       - -c
-      - "set -eo pipefail; \
+      - "set -e -o pipefail; \
          ytt -v dns_zone=$DNS_ZONE \
           -v resume_type=$RESUME_FILE \
           -v version=$VERSION \
