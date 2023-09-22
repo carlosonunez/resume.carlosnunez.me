@@ -36,7 +36,7 @@ create_resume() {
   for resume in $(resume_types)
   do
     >&2 echo "INFO: Generating [$resume] resume assets; hang on."
-    RESUME_FILE="$resume" make build
+    PERSONA="$resume" make build
   done
 }
 
