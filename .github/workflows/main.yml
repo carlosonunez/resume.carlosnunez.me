@@ -8,9 +8,7 @@ on:
       - 'resumes/**'
       - 'config.toml'
       - 'Dockerfile'
-      - 'docker-compose.yml'
       - 'env.gpg'
-      - 'scripts/deploy'
       - '.kickCI/**'
 
 jobs:
