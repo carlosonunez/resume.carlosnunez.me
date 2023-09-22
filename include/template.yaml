@@ -24,7 +24,11 @@ params:
   profile:
     enable: true
     name: Carlos Nunez
+    #@ if hasattr(data.values, "tagline"):
+    tagline: #@ data.values.tagline
+    #@ else:
     tagline: Seasoned DevOps, SRE and Software Consultant
+    #@ end
 #@ if/end hasattr(data.values, "selfieLocation"):
     avatar: #@ data.values.selfieLocation
   contact:
@@ -97,8 +101,15 @@ params:
         year: #@ x.year
       #@ end
   #@ end
+  #@ if hasattr(data.values,"projects"):
   projects:
     enable: true
     list: #@ data.values.projects
+  #@ end
+  #@ if hasattr(data.values,"otherExperience"):
+  otherExperience:
+    enable: true
+    list: #@ data.values.otherExperience
+  #@ end
   footer:
     copyright: Carlos Nunez
