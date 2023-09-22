@@ -3,12 +3,12 @@ IN_DIR=.
 STYLE=chmduquesne
 MAKEFLAGS += --silent
 THEME_URL = https://github.com/carlosonunez/hugo-devresume-theme
-THEME_VERSION = 2023.09.21
+THEME_VERSION = 2023.09.22
 DNS_ZONE ?= resume.carlosnunez.me
 DOCKER_COMPOSE = docker-compose --log-level ERROR
 PERCENT := %
 
-export RESUME_FILE
+export PERSONA
 export DNS_ZONE
 
 .PHONY: clean test build pdf \
@@ -20,8 +20,8 @@ clean:
 
 build: .build-images .ensure-resume-type .fetch-resume .generate-config-toml
 build:
-	export RESUME_FILE; \
-	output_dir=$(PWD)/output/$$RESUME_FILE; \
+	export PERSONA; \
+	output_dir=$(PWD)/output/$$PERSONA; \
 	test -d "$$(dirname "$$output_dir")" || mkdir -p "$$(dirname "$$output_dir")"; \
 	test -d "$(PWD)/pdf" || mkdir -p "$(PWD)/pdf"; \
 	$(DOCKER_COMPOSE) run --rm generate-resume && \
@@ -34,7 +34,7 @@ test:
 		>&2 echo "INFO: Resume is now available at http://localhost:8080"
 
 .ensure-resume-type:
-	if test -z "$$RESUME_FILE" ; \
+	if test -z "$$PERSONA" ; \
 	then \
 		>&2 echo "ERROR: Please define the type of resume to make, like 'consulting' or 'eng'"; \
 		exit 1; \
@@ -56,12 +56,12 @@ test:
 .verify-build:
 	for file in index.html index.xml; \
 	do \
-		f="$(PWD)/output/$$RESUME_FILE/$$file"; \
+		f="$(PWD)/output/$$PERSONA/$$file"; \
 		test -f "$$f" && continue; \
 		>&2 echo "ERROR: Required file post-build is missing: $$f"; \
 		exit 1; \
 	done;
-	>/dev/null find "$(PWD)/output/$$RESUME_FILE/assets/css/devresume"*".css" && exit 0; \
+	>/dev/null find "$(PWD)/output/$$PERSONA/assets/css/devresume"*".css" && exit 0; \
 	>&2 echo "ERROR: CSS not generated."; \
 
 .build-images:

@@ -10,7 +10,7 @@ services:
     entrypoint: sh
     environment:
       - DNS_ZONE
-      - RESUME_FILE
+      - PERSONA
       - VERSION
   hugo:
     extends: resume
@@ -89,7 +89,7 @@ services:
     command:
       - --minify
       - -d
-      - /output/$RESUME_FILE
+      - /output/$PERSONA
 
   generate-pdf:
     build:
@@ -102,7 +102,7 @@ services:
       - -u
       - http://localhost:8080
       - -o
-      - /output/${RESUME_FILE}/resume.pdf
+      - /output/${PERSONA}/resume.pdf
       - --media
       - print
   see-resume:
@@ -123,8 +123,8 @@ services:
       - -c
       - "set -e -o pipefail; \
          ytt -v dns_zone=$DNS_ZONE \
-          -v resume_type=$RESUME_FILE \
+          -v persona=$PERSONA \
           -v version=$VERSION \
-          --data-values-file './${RESUME_FILE}.yaml'  \
+          --data-values-file './${PERSONA}.yaml'  \
           --data-values-file './partials' \
           -f /template.yaml | yj -yt"
