@@ -12,13 +12,15 @@ export PERSONA
 export DNS_ZONE
 
 .PHONY: clean test build pdf \
+				encrypt-wip decrypt-wip \
+				encrypt-specific decrypt-specific \
 				.fetch-resume .generate-site-config .ensure-resume-type .current-version .verify-build \
 				.build-images
 
 clean:
 	rm -rf $(PWD)/output/*
 
-build: .build-images .ensure-resume-type .fetch-resume .generate-config-toml
+build: .ensure-resume-type .build-images .fetch-resume .generate-config-toml
 build:
 	export PERSONA; \
 	output_dir=$(PWD)/output/$$PERSONA; \
@@ -33,12 +35,31 @@ test:
 	$(DOCKER_COMPOSE) up --wait -d see-resume && \
 		>&2 echo "INFO: Resume is now available at http://localhost:8080"
 
+encrypt-wip: .ensure-resume-password
+encrypt-wip:
+	RESUME_PASSWORD="$$RESUME_PASSWORD" $(DOCKER_COMPOSE) run --rm encrypt-wip
+
+decrypt-wip: .ensure-resume-password
+decrypt-wip:
+	RESUME_PASSWORD="$$RESUME_PASSWORD" $(DOCKER_COMPOSE) run --rm decrypt-wip
+
+encrypt-specific: .ensure-resume-password
+encrypt-specific:
+	RESUME_PASSWORD="$$RESUME_PASSWORD" $(DOCKER_COMPOSE) run --rm encrypt-specific-resume
+
+decrypt-specific: .ensure-resume-password
+decrypt-specific:
+	RESUME_PASSWORD="$$RESUME_PASSWORD" $(DOCKER_COMPOSE) run --rm decrypt-specific-resume
+
+.ensure-resume-password:
+	test -z "$$RESUME_PASSWORD" || exit 0; \
+	>&2 echo "ERROR: Please define RESUME_PASSWORD to encrypt and decrypt resumes."; \
+	exit 1; \
+
 .ensure-resume-type:
-	if test -z "$$PERSONA" ; \
-	then \
-		>&2 echo "ERROR: Please define the type of resume to make, like 'consulting' or 'eng'"; \
-		exit 1; \
-	fi; \
+	test -z "$$PERSONA" || exit 0; \
+	>&2 echo "ERROR: Please define the type of resume to make, like 'consulting' or 'eng'"; \
+	exit 1;
 
 .fetch-resume:
 	test -d "$(PWD)/theme" && exit 0; \

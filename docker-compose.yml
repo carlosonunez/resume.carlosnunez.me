@@ -65,6 +65,28 @@ services:
       - "--passphrase=$RESUME_PASSWORD"
       - '--output=$PWD/resumes/wip.yaml'
       - resume_wip.gpg
+  encrypt-specific-resume:
+    extends: gpg
+    entrypoint: sh
+    command:
+      - -c
+      - |-
+        cd ./resumes &&
+          tar -cvzf /tmp/archive.tar.gz specific*.yaml &&
+          cd .. &&
+          gpg-agent --daemon &&
+          gpg --batch --yes --passphrase='$RESUME_PASSWORD' \
+            --output=./specific_resumes.gpg --symmetric /tmp/archive.tar.gz
+  decrypt-specific-resume:
+    extends: gpg
+    entrypoint: sh
+    command:
+      - -c
+      - |-
+        gpg --batch --yes --passphrase='$RESUME_PASSWORD' \
+          --output=/tmp/archive.tar.gz ./specific_resumes.gpg &&
+          cd ./resumes &&
+          tar -xvzf /tmp/archive.tar.gz
   get-temp-aws-credentials:
     env_file: .env
     environment:

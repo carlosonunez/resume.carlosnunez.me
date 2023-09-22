@@ -11,8 +11,10 @@ engineering. 👷🏾
 - Super lightweight YAML-based DSL for expressing your entire life in resume
   form with Markdown
 - Beautiful website-based resumes, powered by Hugo
-- Generate the perfect resume for a specific employer with "Personas"
+- Generate the perfect resume for any hat you wear with "Personas"
 - Keep your resume updates on the DL with "WIP Resumes"
+- Confidentially create specific resumes for specific employers with
+  "Specific Resumes"
 
 ## How resumes are made
 
@@ -97,7 +99,7 @@ To use this feature:
 2. Encrypt the resume with GPG:
 
    ```sh
-   RESUME_PASSWORD=passphrase ./scripts/encrypt_wip_resume.sh
+   RESUME_PASSWORD=passphrase make encrypt-wip
    ```
 
    > ✅ Keep `passphrase` somewhere safe! You won't be able to
@@ -106,5 +108,36 @@ To use this feature:
 3. When you're ready to update the WIP resume again, decrypt it:
 
    ```sh
-   RESUME_PASSWORD=passphrase ./scripts/decrypt_wip_resume.sh
+   RESUME_PASSWORD=passphrase make decrypt-wip
+   ```
+
+### Specific Resumes
+
+Specific Resumes makes it easy to create resumes for specific employers.
+
+Just like WIP Resumes, Specific Resumes are PGP-encrypted so that they can live
+in your codebase without being in plaintext.
+
+To use this feature:
+
+1. Create a new resume at `resumes/` that starts with `specific-` (include the
+   dash).
+
+   For example, if you're creating a resume for ACME Corp, name this resume
+   `./resumes/specific-acme-$(date +%s).yaml` or something like that.
+
+   This file is ignored by Git and will never be committted.
+2. Encrypt the resume with GPG:
+
+   ```sh
+   RESUME_PASSWORD=passphrase make encrypt-specific
+   ```
+
+   > ✅ Keep `passphrase` somewhere safe! You won't be able to
+   > recover your WIP resume if you lose it!
+
+3. When you're ready to update the Specific Resume again, decrypt it:
+
+   ```sh
+   RESUME_PASSWORD=passphrase make decrypt-specific
    ```
