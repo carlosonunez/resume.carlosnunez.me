@@ -1,27 +1,33 @@
+tagline: SRE, Platform Engineer, Kubernetes and Containers Nerd
 experience:
   - title: Presales Solution Engineer
     company: VMware
     dates: "02/2023 - Present"
     summary: |-
-      Provided consulting and drove the technical win for >$5MM of Tanzu ARR and Services contracts in the US Public Sector.
+      Provided consulting on operating air-gapped Kubernetes clusters and implementing container-native
+      application refactoring for the US Department of Defense.
     highlights: 
-      - Guided the creation of a Platform Engineering center of excellence for a major program within the US Department of Defense.
-      - Guided several engineering teams within the US Government on developing faster paths to production and more secure software supply chains.
+      - Architected and wrote an automation framework for standing up demos of
+        Tanzu Application Platform and Tanzu Mission Control in minutes instead of hours.
+      - Provided architectural guidance on building and scaling a
+        next-generation containerized developer platform for a US Air Force program
+        that accelerated capability delivery by several weeks.
+      - Led and mentored fellow Solutions Engineers on positioning and
+        understanding the internal architecture of Tanzu Mission Control
+        Self-Managed.
   - title: Staff Solutions Architect
     company: VMware
     dates: "12/2020 - Present"
     summary: Executed and led consulting engagements focused on Kubernetes enablement and modern application development upskilling.
     highlights:
-      - Paired with several application teams at a large national retailer to reduce
-        deployment times by as much as 40% while migrating to OpenShift and improving
-        codebase test coverage and release safety.
-      - Architected a comprehensive, 70+ point framework for assessing DevOps and SRE
-        capabilties at enterprise customers that reduced Platform Services onboarding
-        by several weeks.
-      - Designed and built a Cloud Foundry-like and Kubernetes-agnostic developer
-        platform in Bash that enabled developers within the US Government to go from
-        idea to production on their own Kubernetes clusters with a single manifest
-        file in minutes.
+      - Designed and built a Cloud Foundry-like and Kubernetes-agnostic developer platform to enable developers to deploy containerized applications on their
+        own clusters in minutes.
+      - Significantly reduced post-sales installation and implementation bottlenecks
+        of Tanzu software by architected, authored, and documented a highly-concurrent and
+        language-agnostic preflight checking framework.
+      - Accelerated production deployments of six major applications at a national retailer
+        through pairing, test-driven development, and leveraging local Kubernetes clusters
+        and Docker Compose.
   - title: Senior Cloud Architect
     company: 10th Magnitude
     dates: "6/2020-11/2020"
@@ -29,12 +35,12 @@ experience:
       Consulted engineering leaders at Fortune 100s on migrating and rearchitecting mission-critical applications
       into Azure.
     highlights:
-      - Served as a principal consultant for a large retail provider through their
-        migration onto Azure Kubernetes Service from OpenShift.
-      - Conducted design sessions and discovery workshops for onboarding applications
-        being refactored to cloud-native designs.
-      - Reduced deployment time of the company's leading Landing Zone service by 40%
-        through automation and authoring additional tooling.
+      - Reduced provisioning times of Azure "landing zones" by over 40%
+        by 40% by leveraging Bash, BATS and Terraform.
+      - Provided architecture and deployment consulting for a migration to
+        Azure Kubernetes Service from OpenShift at a major national retailer.
+      - Mentored junior engineers by providing career progression advice and
+        technical enablement.
   - title: Technical Principal
     company: Contino
     dates: "5/2017-6/2020"
@@ -43,46 +49,82 @@ experience:
       organizations embrace DevOps, upskill engineering capabilities and ship customer value faster
       and easier.
     highlights:
-      - Lead several engagements for quickly enabling and upskilling large development
-        teams on foundational DevOps and Reliability Engineering topics.
-      - Specialized in reducing deployment times into production environments by up to
-        2000% at large and heavily-regulated enterprises within the FSI and Retail
-        sectors.
-      - Expanded the business into US Central and West regions through
-        proposals, SoW generation, discovery workshops and pre-sales efforts (blogs
-        and conference talks).
-      - Grew senior consultants into Techncial Principals through coaching and
-        mentorship.
+      - Improved request-per-second performance of a global IT inventory service by
+        >100% while reducing team toil over 50% with SLOs, automated performance testing
+        and introducing test-driven development.
+      - Removed 17 days from a 400+ day release cycle of a popular banking backoffice
+        application by leveraging NUnit, Selenium, Docker Compose and containerized
+        Jenkins instances.
+      - Accelerated production deployments by >5000% by leveraging value-stream mapping,
+        test-driven development and Docker.
+projects:
+  - title: Status
+    tagline: |-
+      Keep colleagues informed by automating your Slack status based on
+      outside events. Ruby, AWS Lambda, Terraform. [link](https://github.com/carlosonunez/slack-status-bot)
+  - title: FlightAware Summarizer
+    tagline: |-
+      Summarize FlightAware and other flight trackers into a compact JSON blob.  Useful for iOS
+      Shortcuts and other automations. Python, AWS Lambda, Terraform.
+      [link](https://github.com/carlosonunez/travel-update-bot)
+  - title: Passport Parking Bot
+    tagline: |-
+      Automatically renew Passport Parking sessions in Lincoln, NE. Ruby, AWS SQS, Selenium,
+      Terraform. [link](https://github.com/carlosonunez/lincoln-ne-parking-bot)
+otherExperience:
+  - year: 2016
+    employer: Namely
+    item: >-
+      Enabled third-party employee payroll providers to securely test AD SSAML auth
+      against Namely's auth service by architecting and deploying automated multi-region
+      Active Directory forests with Ansible and Python.
+  - year: 2015
+    employer: Google
+    item: >-
+      Increased security and mitigated unprivileged command execution of Windows
+      infrastructure within Google X and acquired Google properties through implementing
+      a Kerberized and Powershell-based command execution sandbox as a Rundeck plugin.
+  - year: 2014
+    employer: Two Sigma
+    item: >-
+      Improved effiency of new hire onboarding and terminations by >30% by implementing a
+      pluggable, Powershell-based employee management workflow engine.
 skills:
 - title: Cloud
   items:
-    - AWS
-    - Azure
-    - vSphere
-    - Serverless
+    - AWS (EC2, Lambda, S3, IAM)
+    - Azure (VMs, Blob Storage)
+    - vSphere (ESXi, vCenter, Tanzu)
+    - Serverless (AWS Lambda, Serverless.io)
 - title: Containers
   items:
-    - Kubernetes
-    - EKS
-    - Docker
-    - Developer platforms
-- title: Software Engineering
+    - Orchestration (Compose, Kubernetes)
+    - Container Runtimes (containerd, Docker)
+    - Developer platforms (Tanzu Application Platform
+- title: Kubernetes
+  items:
+    - Monitoring (Prometheus, Grafana)
+    - Service Meshes (Istio)
+    - Ingress (NGINX Ingress, Contour, Avi)
+    - CNIs (Antrea, Flannel, Calico, Canal)
+- title: Web Dev
+  items:
+    - Automation (Puppeteer/Capybara)
+    - Selenium
+    - JavaScript/Node (barely)
+- title: Backend
   items:
     - Golang
     - Bash
     - Ruby
-- title: SRE
+    - Rust (learning)
+- title: Linux
   items:
-    - Cloudtrail
-    - Jaeger
-    - Grafana
-    - Prometheus
-    - Selenium
-    - Terraform
-    - Ansible
-    - Chef
-projects:
-  - title: International Financial Services Company
-    tagline: "Reduced a 400 day+ path to production by 17 days through building cross-functional teams, value stream mapping and tracer bullets"
-  - title: National Fashion Retailer
-    tagline: Developed a dojo-style enablement framework for migrating legacy applications into OpenShift in weeks instead of months
+    - Tracing (strace)
+    - Text Manipulation (`vim`, `emacs`, `awk`, `grep`, `sed`, etc.)
+    - Troubleshooting (`top`, `htop`, `netcat`, `lsof`, `xxd`, etc.)
+- title: Windows
+  items:
+    - Tracing (Procmon, Event Viewer/ETW)
+    - Automation (Powershell/WIM)
+    - Troubleshooting (`windbg`, `netstat`, etc.)
