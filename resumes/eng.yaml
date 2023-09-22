@@ -90,28 +90,36 @@ otherExperience:
       Improved effiency of new hire onboarding and terminations by >30% by implementing a
       pluggable, Powershell-based employee management workflow engine.
 skills:
-- title: Cloud
+- title: AWS
   items:
-    - AWS (EC2, Lambda, S3, IAM)
-    - Azure (VMs, Blob Storage)
-    - vSphere (ESXi, vCenter, Tanzu)
-    - Serverless (AWS Lambda, Serverless.io)
+    - EC2
+    - Lambda
+    - ALB, ELB
+    - Security Groups
+    - IAM
+- title: Kubernetes
+  items:
+    - Prometheus
+    - Grafana
+    - Istio
+    - OPA (Learning)
+    - Jaeger
+    - CNIs (Antrea, Flannel, Calico, Canal)
+    - NGINX Ingress
+    - Contour
+- title: DevOps Fundamentals
+  items:
+    - Packer
+    - Terraform
+    - Vagrant
+    - Ansible
+    - Chef
+    - Infrastructure testing
 - title: Containers
   items:
     - Orchestration (Compose, Kubernetes)
     - Container Runtimes (containerd, Docker)
     - Developer platforms (Tanzu Application Platform
-- title: Kubernetes
-  items:
-    - Monitoring (Prometheus, Grafana)
-    - Service Meshes (Istio)
-    - Ingress (NGINX Ingress, Contour, Avi)
-    - CNIs (Antrea, Flannel, Calico, Canal)
-- title: Web Dev
-  items:
-    - Automation (Puppeteer/Capybara)
-    - Selenium
-    - JavaScript/Node (barely)
 - title: Backend
   items:
     - Golang
@@ -128,3 +136,8 @@ skills:
     - Tracing (Procmon, Event Viewer/ETW)
     - Automation (Powershell/WIM)
     - Troubleshooting (`windbg`, `netstat`, etc.)
+- title: Web Dev
+  items:
+    - Automation (Puppeteer/Capybara)
+    - Selenium
+    - JavaScript/Node (barely)
