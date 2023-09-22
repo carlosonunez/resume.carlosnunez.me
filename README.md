@@ -126,8 +126,19 @@ To use this feature:
    For example, if you're creating a resume for ACME Corp, name this resume
    `./resumes/specific-acme-$(date +%s).yaml` or something like that.
 
+2. Test your resume by running:
+
+    ```sh
+    PERSONA=specific-$NAME make test
+    ```
+
+    and navigating to `https://localhost:8080`.
+
+    From here, you can print out your resume and submit it to the
+    employer's ATS.
+
    This file is ignored by Git and will never be committted.
-2. Encrypt the resume with GPG:
+3. Encrypt the resume with GPG:
 
    ```sh
    RESUME_PASSWORD=passphrase make encrypt-specific
