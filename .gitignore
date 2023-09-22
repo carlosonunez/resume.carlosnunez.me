@@ -17,3 +17,4 @@ resume_wip*.md
 .terraform.lock.hcl
 resumes/wip*
 ./resumes/specific-*
+resumes/specific-*
