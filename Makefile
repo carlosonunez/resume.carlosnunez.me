@@ -32,8 +32,11 @@ build:
 test: .ensure-resume-type .fetch-resume .generate-config-toml
 test:
 	$(DOCKER_COMPOSE) down; \
-	$(DOCKER_COMPOSE) up --wait -d see-resume && \
-		>&2 echo "INFO: Resume is now available at http://localhost:8080"
+	$(DOCKER_COMPOSE) up --wait -d see-resume || exit 1; \
+	>&2 read -s -n1 -p  "INFO: Resume is now available at http://localhost:8080. Press any key \
+to stop testing. "; \
+	$(DOCKER_COMPOSE) down;
+
 
 encrypt-wip: .ensure-resume-password
 encrypt-wip:
