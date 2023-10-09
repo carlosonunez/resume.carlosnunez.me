@@ -69,7 +69,6 @@ decrypt-specific:
 
 .generate-config-toml:
 	export VERSION=$$($(MAKE) .current-version); \
-	>&2 echo "DEBUG: make anonymous? $(MAKE_ANONYMOUS)"; \
 	if grep -iq 'true' <<< "$(MAKE_ANONYMOUS)"; \
 	then $(DOCKER_COMPOSE) run --rm generate-resume-config-anon > $(PWD)/config.toml; \
 	else $(DOCKER_COMPOSE) run --rm generate-resume-config > $(PWD)/config.toml; \
