@@ -81,6 +81,18 @@ just like CI does.
 
 ## Additional Features
 
+### Anonymous Resumes
+
+Want to anonymize your resume for use with Jobscan or getting roasted on by
+Reddit?
+
+Super easy.
+
+Add `MAKE_ANONYMOUS=true` behind any of the commands described here.
+
+This will anonymize names, addresses, and any company names that have
+an `anonymizedName` property defined.
+
 ### WIP Resumes
 
 WIP Resumes allow you to update a resume confidentially while maintaining a

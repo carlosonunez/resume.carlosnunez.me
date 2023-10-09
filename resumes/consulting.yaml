@@ -2,6 +2,7 @@ showCourses: true
 experience:
   - title: Presales Solution Engineer
     company: VMware
+    anonymizedName: Large Internet Company
     dates: "02/2023 - Present"
     summary: |-
       Provided consulting and drove the technical win for >$5MM of Tanzu ARR and Services contracts in the US Public Sector.
@@ -10,6 +11,7 @@ experience:
       - Guided several engineering teams within the US Government on developing faster paths to production and more secure software supply chains.
   - title: Staff Solutions Architect
     company: VMware
+    anonymizedName: Large Internet Company
     dates: "12/2020 - Present"
     summary: Executed and led consulting engagements focused on Kubernetes enablement and modern application development upskilling.
     highlights:
@@ -25,6 +27,7 @@ experience:
         file in minutes.
   - title: Senior Cloud Architect
     company: 10th Magnitude
+    anonymizedName: Bespoke Azure Consultancy
     dates: "6/2020-11/2020"
     summary: |-
       Consulted engineering leaders at Fortune 100s on migrating and rearchitecting mission-critical applications
@@ -38,6 +41,7 @@ experience:
         through automation and authoring additional tooling.
   - title: Technical Principal
     company: Contino
+    anonymizedName: Small DevOps Consultancy
     dates: "5/2017-6/2020"
     summary: |-
       Executed and led small consulting teams in helping the world's most highly-regulated

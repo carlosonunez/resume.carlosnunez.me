@@ -150,3 +150,19 @@ services:
           --data-values-file './${PERSONA}.yaml'  \
           --data-values-file './partials' \
           -f /template.yaml | yj -yt"
+  generate-resume-config-anon:
+    extends: resume
+    entrypoint: bash
+    working_dir: /work
+    volumes:
+      - $PWD/resumes:/work
+      - $PWD/include/template-anonymous.yaml:/template.yaml
+    command:
+      - -c
+      - "set -e -o pipefail; \
+         ytt -v dns_zone=$DNS_ZONE \
+          -v persona=$PERSONA \
+          -v version=$VERSION \
+          --data-values-file './${PERSONA}.yaml'  \
+          --data-values-file './partials' \
+          -f /template.yaml | yj -yt"

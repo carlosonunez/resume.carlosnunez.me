@@ -7,6 +7,8 @@ showCourses: false
 experience:
   # company: The company you worked for.
   - company: Contoso
+    # anonymizedName: An alias to use when creating anonymized resumes.
+    anonymizedName: Foo
     # title: The title you had at that company.
     title: Senior Staff YAML Engineer
     # dates: Dates you worked at that company, ideally in "MM/YYYY - MM/YYYY" format.
@@ -20,6 +22,8 @@ experience:
       - Mentored junior and mid-level YAML engineers.
       - Created this resume when the company went public.
   - company: Fairwinds
+    # anonymizedName: An alias to use when creating anonymized resumes.
+    anonymizedName: Bar
     # title: The title you had at that company.
     title: Staff YAML Engineer
     # dates: Dates you worked at that company, ideally in "MM/YYYY - MM/YYYY" format.

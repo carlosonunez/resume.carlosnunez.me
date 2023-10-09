@@ -2,6 +2,7 @@ tagline: SRE, Platform Engineer, Kubernetes and Containers Nerd
 experience:
   - title: Presales Solution Engineer
     company: VMware
+    anonymizedName: Large Internet Company
     dates: "02/2023 - Present"
     summary: |-
       Provided consulting on operating air-gapped Kubernetes clusters and implementing container-native
@@ -17,6 +18,7 @@ experience:
         Self-Managed.
   - title: Staff Solutions Architect
     company: VMware
+    anonymizedName: Large Internet Company
     dates: "12/2020 - Present"
     summary: Executed and led consulting engagements focused on Kubernetes enablement and modern application development upskilling.
     highlights:
@@ -30,6 +32,7 @@ experience:
         and Docker Compose.
   - title: Senior Cloud Architect
     company: 10th Magnitude
+    anonymizedName: Bespoke Azure Consultancy
     dates: "6/2020-11/2020"
     summary: |-
       Consulted engineering leaders at Fortune 100s on migrating and rearchitecting mission-critical applications
@@ -43,6 +46,7 @@ experience:
         technical enablement.
   - title: Technical Principal
     company: Contino
+    anonymizedName: Small DevOps Consultancy
     dates: "5/2017-6/2020"
     summary: |-
       Executed and led small consulting teams in helping the world's most highly-regulated
