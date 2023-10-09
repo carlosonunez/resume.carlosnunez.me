@@ -1,0 +1,130 @@
+#@ load("@ytt:data", "data")
+#@ load("@ytt:regexp", "regexp")
+#@ if hasattr(data.values, "inTest") and data.values.inTest == True:
+baseURL: http://localhost:8080
+  #@ else:
+baseURL: #@ "https://{}.{}".format(data.values.persona, data.values.dns_zone)
+#@ end
+languageCode: "en"
+title: "An Example Resume"
+theme: "vendored-theme"
+publishDir: /output
+#@ if/end hasattr(data.values, "googleAnalyticsCode"):
+googleAnalytics: #@ data.values.googleAnalyticsCode
+params:
+  persona: #@ data.values.persona
+  github:
+    repo: https://github.com/example/resume
+    version: #@ data.values.version
+  author: An Example Resume
+  description: This is an example resume.
+  primaryColor: "#5475b6"
+  textPrimaryColor: "#292929"
+  summary:
+    enable: false
+  profile:
+    enable: true
+    name: Example Resume
+    #@ if hasattr(data.values, "tagline"):
+    tagline: #@ data.values.tagline
+    #@ else:
+    tagline: Seasoned DevOps, SRE and Software Consultant
+    #@ end
+#@ if/end hasattr(data.values, "selfieLocation"):
+    avatar: #@ data.values.selfieLocation
+  contact:
+    enable: true
+    location: "123 Anywhere St, Schenectady, NY 12345"
+    list:
+      - icon: "fas fa-phone-square"
+        url: "tel:#"
+        text: 469-555-1212
+      - icon: "fas fa-envelope-square"
+        url: "mailto:#"
+        text: "hello@example.resume"
+      - icon: "fas fa-globe"
+        url: "#"
+        text: "blog.example.resume"
+  education:
+    enable: true
+    list:
+      - degree: BEng, Computer Engineering
+        university: Example University
+        dates: "2005 - 2010"
+  interests:
+    enable: true
+    list:
+      - name: Road cycling
+      - name: Fitness and weight lifting
+      - name: Beer and breweries
+      - name: Travel
+      - name: Writing
+      - name: Speaking
+  social:
+    enable: true
+    list:
+      - icon: fab fa-github-square
+        url: //github.com
+        title: "@the-example-resume"
+      - icon: fab fa-linkedin
+        url: //linkedin.com
+        title: the-example-resume
+  experience:
+    enable: true
+    list:
+      #@ for x in data.values.experience:
+      - title: #@ x.title
+        #@ if hasattr(x, 'anonymizedName'):
+        company: #@ x.anonymizedName
+        #@ else:
+        company: #@ x.company
+        #@ end
+        dates: #@ x.dates
+        details: #@ x.summary
+        items:
+          #@ for y in x.highlights:
+          - details: #@ y
+          #@ end
+      #@ end
+  skills:
+    enable: true
+    list:
+      #@ for x in data.values.skills:
+      - title: #@ x.title
+      - items:
+          #@ for y in x.items:
+        - details: #@ y
+          #@ end
+      #@ end
+  #@ if hasattr(data.values,"showCourses") and data.values.showCourses == True:
+  courses:
+    enable: true
+    list:
+      #@ for x in data.values.courses:
+      - url: #@ x.url
+        name: #@ x.name
+        year: #@ x.year
+      #@ end
+  #@ end
+  #@ if hasattr(data.values,"projects"):
+  projects:
+    enable: true
+    list:
+    #@ for x in data.values.projects:
+      - title: #@ x.title
+        tagline: #@ regexp.replace("(github.com|linkedin.com)/[\w\/-]+",x.tagline,"$1/example/thing")
+    #@ end
+  #@ end
+  #@ if hasattr(data.values,"otherExperience"):
+  otherExperience:
+    enable: true
+    list:
+      #@ for x in data.values.otherExperience:
+      #@ idx=data.values.otherExperience.index(x)
+      - year: #@ x.year
+        employer: #@ "Example Company {}".format(idx)
+        item: #@ regexp.replace("github.com/[\w\/-]+",x.item,"github.com/example/thing")
+      #@ end
+  #@ end
+  footer:
+    copyright: Example Resume

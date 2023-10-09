@@ -1,12 +1,9 @@
-OUT_DIR=output
-IN_DIR=.
-STYLE=chmduquesne
 MAKEFLAGS += --silent
 THEME_URL = https://github.com/carlosonunez/hugo-devresume-theme
 THEME_VERSION = 2023.09.22
-DNS_ZONE ?= resume.carlosnunez.me
 DOCKER_COMPOSE = docker-compose --log-level ERROR
 PERCENT := %
+MAKE_ANONYMOUS ?= false
 
 export PERSONA
 export DNS_ZONE
@@ -32,6 +29,7 @@ build:
 test: .ensure-resume-type .fetch-resume .generate-config-toml
 test:
 	$(DOCKER_COMPOSE) down; \
+	trap 'rc=$$?; $(DOCKER_COMPOSE) down; exit $$?' INT HUP EXIT; \
 	$(DOCKER_COMPOSE) up --wait -d see-resume || exit 1; \
 	>&2 read -s -n1 -p  "INFO: Resume is now available at http://localhost:8080. Press any key \
 to stop testing. "; \
@@ -71,7 +69,10 @@ decrypt-specific:
 
 .generate-config-toml:
 	export VERSION=$$($(MAKE) .current-version); \
-	$(DOCKER_COMPOSE) run --rm generate-resume-config > $(PWD)/config.toml
+	if grep -iq 'true' <<< "$(MAKE_ANONYMOUS)"; \
+	then $(DOCKER_COMPOSE) run --rm generate-resume-config-anon > $(PWD)/config.toml; \
+	else $(DOCKER_COMPOSE) run --rm generate-resume-config > $(PWD)/config.toml; \
+	fi;
 
 .current-version:
 	echo $$(git log -1 --format='$(PERCENT)h' $(PWD)/resumes);
