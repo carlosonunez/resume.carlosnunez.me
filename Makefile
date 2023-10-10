@@ -1,7 +1,7 @@
 SHELL := /usr/bin/env bash
 MAKEFLAGS += --silent
 THEME_URL = https://github.com/carlosonunez/hugo-devresume-theme
-THEME_VERSION = 2023.09.22
+THEME_VERSION = 2023.10.10
 DOCKER_COMPOSE = docker-compose --log-level ERROR
 PERCENT := %
 MAKE_ANONYMOUS ?= false
