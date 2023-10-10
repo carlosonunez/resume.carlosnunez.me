@@ -70,8 +70,8 @@ decrypt-specific:
 .generate-config-toml:
 	export VERSION=$$($(MAKE) .current-version); \
 	if grep -iq 'true' <<< "$(MAKE_ANONYMOUS)"; \
-	then $(DOCKER_COMPOSE) run --rm generate-resume-config-anon > $(PWD)/config.toml; \
-	else $(DOCKER_COMPOSE) run --rm generate-resume-config > $(PWD)/config.toml; \
+	then $(DOCKER_COMPOSE) run --rm generate-resume-config-anon > $(PWD)/output/$(PERSONA)-config.toml; \
+	else $(DOCKER_COMPOSE) run --rm generate-resume-config > $(PWD)/output/$(PERSONA)-config.toml; \
 	fi;
 
 .current-version:

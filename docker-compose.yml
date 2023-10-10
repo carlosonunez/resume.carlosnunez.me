@@ -112,6 +112,8 @@ services:
       - --minify
       - -d
       - /output/$PERSONA
+      - --config
+      - /output/$PERSONA-config.toml
 
   generate-pdf:
     build:
@@ -138,6 +140,8 @@ services:
     extends: resume
     entrypoint: bash
     working_dir: /work
+    environment:
+      - PERSONA
     volumes:
       - $PWD/resumes:/work
       - $PWD/include/template.yaml:/template.yaml
@@ -154,6 +158,8 @@ services:
     extends: resume
     entrypoint: bash
     working_dir: /work
+    environment:
+      - PERSONA
     volumes:
       - $PWD/resumes:/work
       - $PWD/include/template-anonymous.yaml:/template.yaml
