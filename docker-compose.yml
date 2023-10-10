@@ -8,8 +8,8 @@ services:
     build:
       context: .
     entrypoint: sh
+    env_file: .env
     environment:
-      - DNS_ZONE
       - PERSONA
       - VERSION
   hugo:
@@ -140,17 +140,17 @@ services:
     extends: resume
     entrypoint: bash
     working_dir: /work
-    environment:
-      - PERSONA
     volumes:
       - $PWD/resumes:/work
       - $PWD/include/template.yaml:/template.yaml
+      - $PWD/config.yaml:/config.yaml
     command:
       - -c
       - "set -e -o pipefail; \
          ytt -v dns_zone=$DNS_ZONE \
           -v persona=$PERSONA \
           -v version=$VERSION \
+          --data-values-file '/config.yaml' \
           --data-values-file './${PERSONA}.yaml'  \
           --data-values-file './partials' \
           -f /template.yaml | yj -yt"
@@ -158,17 +158,17 @@ services:
     extends: resume
     entrypoint: bash
     working_dir: /work
-    environment:
-      - PERSONA
     volumes:
       - $PWD/resumes:/work
       - $PWD/include/template-anonymous.yaml:/template.yaml
+      - $PWD/config.yaml:/config.yaml
     command:
       - -c
       - "set -e -o pipefail; \
          ytt -v dns_zone=$DNS_ZONE \
           -v persona=$PERSONA \
           -v version=$VERSION \
+          --data-values-file '/config.yaml' \
           --data-values-file './${PERSONA}.yaml'  \
           --data-values-file './partials' \
           -f /template.yaml | yj -yt"

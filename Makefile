@@ -7,7 +7,6 @@ PERCENT := %
 MAKE_ANONYMOUS ?= false
 
 export PERSONA
-export DNS_ZONE
 
 .PHONY: clean test build pdf \
 				encrypt-wip decrypt-wip \
@@ -24,7 +23,7 @@ build:
 	$(DOCKER_COMPOSE) run --rm generate-resume && \
 		$(MAKE) .verify-build
 
-test: .ensure-resume-type .fetch-resume .generate-config-toml
+test: .ensure-resume-type .fetch-resume .create-output-dir .generate-config-toml
 test:
 	$(DOCKER_COMPOSE) down; \
 	trap 'rc=$$?; $(DOCKER_COMPOSE) down; exit $$?' INT HUP EXIT; \

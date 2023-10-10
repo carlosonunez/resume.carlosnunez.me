@@ -2,7 +2,7 @@
 #@ if hasattr(data.values, "inTest") and data.values.inTest == True:
 baseURL: http://localhost:8080
   #@ else:
-baseURL: #@ "https://{}.{}".format(data.values.persona, data.values.dns_zone)
+baseURL: #@ "https://{}.{}".format(data.values.persona, data.values.dns.root + "." + data.values.dns.zone)
 #@ end
 languageCode: "en"
 title: "Carlos's Resume"
