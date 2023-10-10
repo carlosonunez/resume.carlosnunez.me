@@ -79,20 +79,37 @@ otherExperience:
   - year: 2016
     employer: Namely
     item: >-
-      Enabled third-party employee payroll providers to securely test AD SSAML auth
-      against Namely's auth service by architecting and deploying automated multi-region
-      Active Directory forests with Ansible and Python.
+      Enabled third-party employee payroll providers to securely test AD SSAML auth against Namely's
+      auth service by architecting and deploying automated multi-region Active Directory forests
+      with Ansible and Python. Supported Namely Payroll and other Windows-based workloads. Automated
+      fleet provisioning with PowerShell, TeamCity and Octopus Deploy.
   - year: 2015
     employer: Google
     item: >-
-      Increased security and mitigated unprivileged command execution of Windows
-      infrastructure within Google X and acquired Google properties through implementing
-      a Kerberized and Powershell-based command execution sandbox as a Rundeck plugin.
+      Increased security and mitigated unprivileged command execution of Windows infrastructure
+      within Google X and acquired Google properties through implementing a Kerberized and
+      Powershell-based command execution sandbox as a Rundeck plugin. Supported and maintained the
+      reliability of 5,000+ fleet of Windows and Linux virtual machines. Automated provisioning and
+      configuration management with Puppet, Python and PowerShell.
   - year: 2014
     employer: Two Sigma
     item: >-
-      Improved effiency of new hire onboarding and terminations by >30% by implementing a
-      pluggable, Powershell-based employee management workflow engine.
+      Improved effiency of new hire onboarding and terminations by >30% by
+      implementing a pluggable, Powershell-based employee management workflow engine. Designed
+      and led a proof-of-concept of Citrix XenDesktop VDIs for trading.
+  - year: 2012
+    employer: Jane Street
+    item: >-
+      Architected and built an in-house configuration management platform for kickstarting
+      and provisioning Windows servers from power-on using PowerShell and F#. Provided
+      advanced support for homegrown Excel Add-ons used for $USD billions of daily order flow.
+  - year: 2008
+    employe: Macquarie Capital
+    item: >-
+      Optimized and refactored VBscript scripts to improve provisioning and decommissioning speed
+      of Dell and HP Windows servers worldwide by over 40%. Wrote scripts and other automation
+      to improve DFSR-enabled file server migration reliability. Supported and was on-call for 1,000+
+      Windows server fleet worldwide.
 skills:
 - title: Cloud
   items:
@@ -106,22 +123,6 @@ skills:
     - Monitoring (Prometheus, Grafana, Jaeger)
     - Networking (Istio, CNIs)
     - Ingress (Contour, NGINX)
-- title: Data
-  items:
-    - Flat files
-    - RDBMS/SQL (SQLite, Postgres)
-- title: Security
-  items:
-    - Encryption (PGP/GPG)
-    - Secrets management (Vault, dotenv)
-    - Container image scanning
-    - Static code analysis
-- title: Networking
-  items:
-    - Packet inspection (`pcap`/`tcpdump`/`netstat`/`telnet`)
-    - Packet manipulation (`iptables`)
-    - Troubleshooting (`curl`/`netcat`)
-    - VPN (WireGuard/Tailscale)
 - title: DevOps Fundamentals
   items:
     - Infra provisioning (Terraform, Pulumi)
@@ -146,6 +147,22 @@ skills:
     - Tracing (Procmon, Event Viewer/ETW)
     - Automation (Powershell/WIM)
     - Troubleshooting (`windbg`, `netstat`, etc.)
+- title: Networking
+  items:
+    - Packet inspection (`pcap`/`tcpdump`/`netstat`/`telnet`)
+    - Packet manipulation (`iptables`)
+    - Troubleshooting (`curl`/`netcat`)
+    - VPN (WireGuard/Tailscale)
+- title: Data
+  items:
+    - Flat files
+    - RDBMS/SQL (SQLite, Postgres)
+- title: Security
+  items:
+    - Encryption (PGP/GPG)
+    - Secrets management (Vault, dotenv)
+    - Container image scanning (Clair, Trivy)
+    - Static code analysis tools
 - title: Web Dev
   items:
     - Automation (Puppeteer/Capybara)
