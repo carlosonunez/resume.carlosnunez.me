@@ -1,3 +1,4 @@
+SHELL := /usr/bin/env bash
 MAKEFLAGS += --silent
 THEME_URL = https://github.com/carlosonunez/hugo-devresume-theme
 THEME_VERSION = 2023.09.22
