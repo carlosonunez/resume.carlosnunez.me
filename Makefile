@@ -13,17 +13,14 @@ export DNS_ZONE
 				encrypt-wip decrypt-wip \
 				encrypt-specific decrypt-specific \
 				.fetch-resume .generate-site-config .ensure-resume-type .current-version .verify-build \
-				.build-images
+				.build-images .create-output-dir
 
 clean:
 	rm -rf $(PWD)/output/*
 
-build: .ensure-resume-type .build-images .fetch-resume .generate-config-toml
+build: .ensure-resume-type .build-images .fetch-resume .create-output-dir .generate-config-toml
 build:
 	export PERSONA; \
-	output_dir=$(PWD)/output/$$PERSONA; \
-	test -d "$$(dirname "$$output_dir")" || mkdir -p "$$(dirname "$$output_dir")"; \
-	test -d "$(PWD)/pdf" || mkdir -p "$(PWD)/pdf"; \
 	$(DOCKER_COMPOSE) run --rm generate-resume && \
 		$(MAKE) .verify-build
 
@@ -92,3 +89,9 @@ decrypt-specific:
 
 .build-images:
 	$(DOCKER_COMPOSE) build
+
+.create-output-dir:
+	export PERSONA; \
+	output_dir=$(PWD)/output/$$PERSONA; \
+	test -d "$$(dirname "$$output_dir")" || mkdir -p "$$(dirname "$$output_dir")"; \
+	test -d "$(PWD)/pdf" || mkdir -p "$(PWD)/pdf";
