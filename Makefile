@@ -12,7 +12,7 @@ export PERSONA
 				encrypt-wip decrypt-wip \
 				encrypt-specific decrypt-specific \
 				.fetch-resume .generate-site-config .ensure-resume-type .current-version .verify-build \
-				.build-images .create-output-dir
+				.build-images .create-output-dir .wait-for-test-env-ready
 
 clean:
 	rm -rf $(PWD)/output/*
@@ -26,12 +26,20 @@ build:
 test: .ensure-resume-type .fetch-resume .create-output-dir .generate-config-toml
 test:
 	$(DOCKER_COMPOSE) down; \
-	trap 'rc=$$?; $(DOCKER_COMPOSE) down; exit $$?' INT HUP EXIT; \
 	$(DOCKER_COMPOSE) up --wait -d see-resume || exit 1; \
-	>&2 read -s -n1 -p  "INFO: Resume is now available at http://localhost:8080. Press any key \
+	if test -z "$$TEST_NO_WAIT"; \
+	then \
+		trap 'rc=$$?; $(DOCKER_COMPOSE) down; exit $$?' INT HUP EXIT; \
+		>&2 read -s -n1 -p  "INFO: Resume is now available at http://localhost:8080. Press any key \
 to stop testing. "; \
-	$(DOCKER_COMPOSE) down;
+		$(DOCKER_COMPOSE) down; \
+	fi;
 
+pdf:
+	TEST_NO_WAIT=1 $(MAKE) test || exit 1; \
+	trap 'rc=$$?; $(DOCKER_COMPOSE) down; exit $$?' INT HUP EXIT; \
+	$(MAKE) .wait-for-test-env-ready && \
+		$(DOCKER_COMPOSE) run --rm generate-pdf;
 
 encrypt-wip: .ensure-resume-password
 encrypt-wip:
@@ -94,3 +102,9 @@ decrypt-specific:
 	output_dir=$(PWD)/output/$$PERSONA; \
 	test -d "$$(dirname "$$output_dir")" || mkdir -p "$$(dirname "$$output_dir")"; \
 	test -d "$(PWD)/pdf" || mkdir -p "$(PWD)/pdf";
+
+.wait-for-test-env-ready:
+	>&2 echo "INFO: Waiting 10 seconds for the test environment to become ready."; \
+	timeout 10 sh -c 'while true; do curl -sS -o /dev/null http://localhost:8080 && break; sleep 1; done' && exit 0; \
+	>&2 echo "ERROR: timed out while waiting for test environment to come up."; \
+	exit 1

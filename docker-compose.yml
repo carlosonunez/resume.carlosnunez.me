@@ -18,7 +18,8 @@ services:
     working_dir: /site
     volumes:
       - $PWD/theme:/site/themes/vendored-theme
-      - $PWD/config.toml:/site/config.toml
+      - $PWD/output/${PERSONA}-config.toml:/site/config.toml
+      - $PWD/output:/output
   gpg:
     build:
       dockerfile: gpg.Dockerfile
@@ -106,15 +107,10 @@ services:
 # start
   generate-resume:
     extends: hugo
-    volumes:
-      - $PWD/output:/output
     command:
       - --minify
       - -d
       - /output/$PERSONA
-      - --config
-      - /output/$PERSONA-config.toml
-
   generate-pdf:
     build:
       dockerfile: pdf.Dockerfile
