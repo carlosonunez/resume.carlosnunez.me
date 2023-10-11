@@ -8,11 +8,11 @@ experience:
       Provided consulting on operating air-gapped Kubernetes clusters and implementing container-native
       application refactoring for the US Department of Defense.
     highlights: 
-      - Architected and wrote an automation framework for standing up demos of
+      - Created architecture for and wrote an automation framework for standing up demos of
         Tanzu Application Platform and Tanzu Mission Control in minutes instead of hours.
-      - Provided architectural guidance on building and scaling a
-        next-generation containerized developer platform for a US Air Force program
-        that accelerated capability delivery by several weeks.
+      - Provided guidance and technical leadership on onarchitecture for next-generation
+        containerized and multi-cloud eveloper platform for a US Air Force program that accelerated
+        capability delivery by several weeks.
       - Led and mentored fellow Solutions Engineers on positioning and
         understanding the internal architecture of Tanzu Mission Control
         Self-Managed.
@@ -22,14 +22,16 @@ experience:
     dates: "12/2020 - Present"
     summary: Executed and led consulting engagements focused on Kubernetes enablement and modern application development upskilling.
     highlights:
-      - Designed and built a Cloud Foundry-like and Kubernetes-agnostic developer platform to enable developers to deploy containerized applications on their
+      - Designed and built an innovative Cloud Foundry-like and Kubernetes-agnostic developer platform to enable developers to deploy containerized applications on their
         own clusters in minutes.
-      - Significantly reduced post-sales installation and implementation bottlenecks
-        of Tanzu software by architected, authored, and documented a highly-concurrent and
-        language-agnostic preflight checking framework.
+      - Significantly reduced post-sales installation and implementation bottlenecks of SaaS and
+        Tanzu software by writing, documenting and creating architecture for an innovative,
+        highly-concurrent and language-agnostic preflight checking framework.
       - Accelerated production deployments of six major applications at a national retailer
         through pairing, test-driven development, and leveraging local Kubernetes clusters
         and Docker Compose.
+      - Collaborated with product teams and R&D to improve Tanzu Build Service and Tanzu
+        Kubernetes Grid.
   - title: Senior Cloud Architect
     company: 10th Magnitude
     anonymizedName: Bespoke Azure Consultancy
@@ -50,8 +52,8 @@ experience:
     dates: "5/2017-6/2020"
     summary: |-
       Executed and led small consulting teams in helping the world's most highly-regulated
-      organizations embrace DevOps, upskill engineering capabilities and ship customer value faster
-      and easier.
+      organizations embrace DevOps, improve cloud infrastructure, and upskill engineering capabilities
+      and ship customer value faster and easier.
     highlights:
       - Improved request-per-second performance of a global IT inventory service by
         >100% while reducing team toil over 50% with SLOs, automated performance testing
@@ -59,8 +61,8 @@ experience:
       - Removed 17 days from a 400+ day release cycle of a popular banking backoffice
         application by leveraging NUnit, Selenium, Docker Compose and containerized
         Jenkins instances.
-      - Accelerated production deployments by >5000% by leveraging value-stream mapping,
-        test-driven development and Docker.
+      - Supported and wrote observability tooling for a multi-hundred node distributed system
+        powered by Docker Enterprise.
 projects:
   - title: Status
     tagline: |-
@@ -71,6 +73,10 @@ projects:
       Summarize FlightAware and other flight trackers into a compact JSON blob.  Useful for iOS
       Shortcuts and other automations. Python, AWS Lambda, Terraform.
       [link](https://github.com/carlosonunez/travel-update-bot)
+  - title: Docker Proxy
+    tagline: |-
+      Connect to and browse through multiple Cisco AnyConnect and OpenVPN VPNs from your machine
+      through lightweight Docker containers. [link](https://github.com/carlosonunez/docker-proxy)
   - title: Passport Parking Bot
     tagline: |-
       Automatically renew Passport Parking sessions in Lincoln, NE. Ruby, AWS SQS, Selenium,
@@ -79,10 +85,10 @@ otherExperience:
   - year: 2016
     employer: Namely
     item: >-
-      Enabled third-party employee payroll providers to securely test AD SSAML auth against Namely's
-      auth service by architecting and deploying automated multi-region Active Directory forests
-      with Ansible and Python. Supported Namely Payroll and other Windows-based workloads. Automated
-      fleet provisioning with PowerShell, TeamCity and Octopus Deploy.
+      Created architecture for, written and deployed an automated multi-region Active Directory
+      forests with Ansible and Python. Supported Namely Payroll and other Windows-based workloads.
+      Automated fleet provisioning with PowerShell, TeamCity and Octopus Deploy to enable hird-party
+      employee payroll providers to securely test AD SSAML auth against Namely's auth service.
   - year: 2015
     employer: Google
     item: >-
@@ -94,13 +100,13 @@ otherExperience:
   - year: 2014
     employer: Two Sigma
     item: >-
-      Improved effiency of new hire onboarding and terminations by >30% by
-      implementing a pluggable, Powershell-based employee management workflow engine. Designed
-      and led a proof-of-concept of Citrix XenDesktop VDIs for trading.
+      Improved effiency of new hire onboarding and terminations by >30% by creating architecture for
+      and implementing a pluggable and scalable, Powershell-based employee management workflow
+      engine. Designed and led a proof-of-concept of Citrix XenDesktop VDIs for trading.
   - year: 2012
     employer: Jane Street
     item: >-
-      Architected and built an in-house configuration management platform for kickstarting
+      Authored architecture for and built an in-house configuration management platform for kickstarting
       and provisioning Windows servers from power-on using PowerShell and F#. Provided
       advanced support for homegrown Excel Add-ons used for $USD billions of daily order flow.
   - year: 2008
@@ -111,11 +117,16 @@ otherExperience:
       to improve DFSR-enabled file server migration reliability. Supported and was on-call for 1,000+
       Windows server fleet worldwide.
 skills:
-- title: Cloud
+- title: Public Cloud
   items:
     - AWS
     - Azure
+    - GCP
+- title: Virtualization
+  items:
     - vSphere
+    - KVM
+    - QEMU
 - title: Containers
   items:
     - Container orchestration (Kubernetes, Compose)
@@ -123,18 +134,35 @@ skills:
     - Monitoring (Prometheus, Grafana, Jaeger)
     - Networking (Istio, CNIs)
     - Ingress (Contour, NGINX)
+    - Observability/Telemetry (Jaeger)
 - title: DevOps Fundamentals
   items:
     - Infra provisioning (Terraform, Pulumi)
     - Config management (Chef, Ansible)
     - Infrastructure testing (Goss)
     - CI/CD (Jenkins, GitHub Actions, GitLab CI, Azure DevOps)
+- title: Industry Trends
+  items:
+    - Big Data (data lakes, ETL, storage)
+    - AI (LLMs)
+- title: Agile and Leadership Skills
+  items:
+    - Value stream mapping
+    - Providiing technical vision
+    - Agile storyboarding and facilitation
+    - Motivating teams
+    - Written communication
+    - Verbal communication
+    - Strong analytical skills
+    - Collaboration skills
+    - Mentoring
 - title: Software Dev
   items:
-    - Object-Oriented (Golang)
+    - Object-Oriented (Golang, Java)
     - Scripted (Bash, Ruby, Python)
     - Functional (Rust)
     - Version Control (Git)
+    - Distributed Systems Tooling (Kafka, Consul)
     - Clean Code (TDD, BDD, DRY)
 - title: Linux
   items:
@@ -156,7 +184,7 @@ skills:
 - title: Data
   items:
     - Flat files
-    - RDBMS/SQL (SQLite, Postgres)
+    - RDBMS/SQL (SQLite, Postgres, MySQL)
 - title: Security
   items:
     - Encryption (PGP/GPG)
