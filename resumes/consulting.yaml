@@ -1,4 +1,10 @@
 showCourses: true
+additionalContactInfo:
+  - item: Top Secret Clearance
+    icon: briefcase
+    private: true
+  - item: Up to 80% Travel Preferred
+    icon: airplane
 experience:
   - title: Presales Solution Engineer
     company: VMware

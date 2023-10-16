@@ -1,3 +1,9 @@
+additionalContactInfo:
+  - item: Top Secret Clearance
+    icon: briefcase
+    private: true
+  - item: Up to 80% Travel Preferred
+    icon: plane
 tagline: SRE, Platform Engineer, Kubernetes and Containers Nerd
 experience:
   - title: Presales Solution Engineer
