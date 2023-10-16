@@ -1,3 +1,19 @@
+# additionalContactInfo: Displays additional contact info, like
+#                        "US Citizen" or "References available upon request"
+#                        in the upper-right-hand corner of the resume.
+additionalContactInfo:
+  # icon: The Font Awesome icon you'd like to use. Don't include the 'fa-'
+  #       part or any additional FA properties.
+  #       https://fontawesome.com
+  - icon: box
+
+    # item: The text to show.
+    item: References available upon request.
+
+    # private: Set this to 'true' to hide this piece of info on
+    #          anonymous resumes.
+    private: false
+
 # showCourses: Shows any online courses you've made, like those on Udemy, A Cloud Guru or
 # LinkedIn Learning.
 showCourses: false

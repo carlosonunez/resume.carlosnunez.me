@@ -74,7 +74,7 @@ decrypt-specific:
 
 .generate-config-toml:
 	export VERSION=$$($(MAKE) .current-version); \
-	if grep -iq 'true' <<< "$(MAKE_ANONYMOUS)"; \
+	if test "$(PERSONA)" == 'example' || grep -iq 'true' <<< "$(MAKE_ANONYMOUS)"; \
 	then $(DOCKER_COMPOSE) run --rm generate-resume-config-anon > $(PWD)/output/$(PERSONA)-config.toml; \
 	else $(DOCKER_COMPOSE) run --rm generate-resume-config > $(PWD)/output/$(PERSONA)-config.toml; \
 	fi;

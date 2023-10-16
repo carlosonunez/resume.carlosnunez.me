@@ -44,6 +44,16 @@ params:
       - icon: "fas fa-globe"
         url: "#"
         text: "blog.carlosnunez.me"
+      #@ if hasattr(data.values, "additionalContactInfo"):
+      #@  for x in data.values.additionalContactInfo:
+      - text: #@ x.item
+      #@    if hasattr(x, "icon"):
+        icon: #@ "fas fa-" + x.icon
+      #@    else:
+        icon: fas fa-sticky-note
+      #@    end
+      #@  end
+      #@ end
   education:
     enable: true
     list:
