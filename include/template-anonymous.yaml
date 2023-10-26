@@ -63,7 +63,11 @@ params:
         university: Example University
         dates: "2005 - 2010"
   interests:
+    #@ if hasattr(data.values, "showInterests") and data.values.showInterests == False:
+    enable: false
+    #@ else:
     enable: true
+    #@ end
     list:
       - name: Road cycling
       - name: Fitness and weight lifting

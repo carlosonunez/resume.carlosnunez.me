@@ -70,9 +70,8 @@ params:
       - name: Road cycling
       - name: Fitness and weight lifting
       - name: Beer and breweries
-      - name: Travel
-      - name: Writing
-      - name: Speaking
+      - name: Coffee (v60 with Chemex filters ❤️)
+      - name: Minimalist sneakers
   social:
     enable: true
     list:
