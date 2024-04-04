@@ -84,7 +84,7 @@ services:
     command:
       - -c
       - |-
-        gpg --batch --yes --passphrase='$RESUME_PASSWORD' \
+        gpg --decrypt --batch --yes --passphrase='$RESUME_PASSWORD' \
           --output=/tmp/archive.tar.gz ./specific_resumes.gpg &&
           cd ./resumes &&
           tar -xvzf /tmp/archive.tar.gz

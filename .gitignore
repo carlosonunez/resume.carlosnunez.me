@@ -18,3 +18,5 @@ resume_wip*.md
 resumes/wip*
 ./resumes/specific-*
 resumes/specific-*
+cscope.*
+tags
