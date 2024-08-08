@@ -33,7 +33,7 @@ params:
     avatar: #@ data.values.selfieLocation
   contact:
     enable: true
-    location: "1919 Taylor Street F, Houston TX, 77007"
+    location: "1942 West Gray #1165, Houston TX, 77019"
     list:
       - icon: "fas fa-phone-square"
         url: "tel:#"
