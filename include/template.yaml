@@ -16,44 +16,17 @@ params:
     repo: https://github.com/carlosonunez/resume.carlosnunez.me
     version: #@ data.values.version
   author: Carlos Nunez
-  description: makes production fun again.
-  primaryColor: "#5475b6"
-  textPrimaryColor: "#292929"
   summary:
     enable: false
   profile:
     enable: true
     name: Carlos Nunez
-    #@ if hasattr(data.values, "tagline"):
-    tagline: #@ data.values.tagline
-    #@ else:
-    tagline: Seasoned DevOps, SRE and Software Consultant
-    #@ end
-#@ if/end hasattr(data.values, "selfieLocation"):
-    avatar: #@ data.values.selfieLocation
+    website: blog.carlosnunez.me
   contact:
     enable: true
     location: "1942 West Gray #1165, Houston TX, 77019"
-    list:
-      - icon: "fas fa-phone-square"
-        url: "tel:#"
-        text: 469-382-9361
-      - icon: "fas fa-envelope-square"
-        url: "mailto:#"
-        text: "work@carlosnunez.me"
-      - icon: "fas fa-globe"
-        url: "#"
-        text: "blog.carlosnunez.me"
-      #@ if hasattr(data.values, "additionalContactInfo"):
-      #@  for x in data.values.additionalContactInfo:
-      - text: #@ x.item
-      #@    if hasattr(x, "icon"):
-        icon: #@ "fas fa-" + x.icon
-      #@    else:
-        icon: fas fa-sticky-note
-      #@    end
-      #@  end
-      #@ end
+    phone: 469-382-9361
+    email: work@carlosnunez.me
   education:
     enable: true
     list:
@@ -70,8 +43,8 @@ params:
       - name: Road cycling
       - name: Fitness and weight lifting
       - name: Beer and breweries
-      - name: Coffee (v60 with Chemex filters ❤️)
-      - name: Minimalist sneakers
+      - name: Coffee (v60 switch with Chemex filters)
+      - name: Minimalist sneakers and sandals
   social:
     enable: true
     list:
@@ -87,8 +60,11 @@ params:
       #@ for x in data.values.experience:
       - title: #@ x.title
         company: #@ x.company
+        location: #@ x.location
         dates: #@ x.dates
+        #@ if hasattr(x, "summary"):
         details: #@ x.summary
+        #@ end
         items:
           #@ for y in x.highlights:
           - details: #@ y
@@ -99,7 +75,7 @@ params:
     list:
       #@ for x in data.values.skills:
       - title: #@ x.title
-      - items:
+        items:
           #@ for y in x.items:
         - details: #@ y
           #@ end
@@ -112,6 +88,7 @@ params:
       - url: #@ x.url
         name: #@ x.name
         year: #@ x.year
+        publisher: #@ x.publisher
       #@ end
   #@ end
   #@ if hasattr(data.values,"projects"):
@@ -122,7 +99,13 @@ params:
   #@ if hasattr(data.values,"otherExperience"):
   otherExperience:
     enable: true
-    list: #@ data.values.otherExperience
+    list:
+      #@ for x in data.values.otherExperience:
+      - year: #@ x.year
+        employer: #@ x.employer
+        location: #@ x.location
+        item: #@ x.item
+      #@ end
   #@ end
   footer:
     copyright: Carlos Nunez
