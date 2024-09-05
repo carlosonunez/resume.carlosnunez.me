@@ -1,34 +1,31 @@
 showCourses: true
-additionalContactInfo:
-  - item: Top Secret Clearance
-    icon: briefcase
-    private: true
-  - item: Up to 80% Travel Preferred
-    icon: plane
 experience:
   - title: Federal Presales Engineer
     company: Wiz
     anonymizedName: Large Cybersecurity Startup
     dates: "05/2024 - Present"
-    summary: |-
-      Drove the technical win for >$2MM of Wiz ARR and provided technical contributions to the Wiz for Government FedRAMP environment.
+    location: Houston, TX (remote)
+    dates: "05/2024 - Present"
     highlights:
+    - Drove the technical win for >$2MM of Wiz ARR and provided technical contributions to the Wiz for Government FedRAMP environment.
     - Designed bespoke demos and proof-of-values to accelerate deal close and time to value for the customer
     - Accelerated complex demo creation with demo automation based on Terraform, Bash and Make
   - title: Federal Presales Engineer
     company: VMware
     anonymizedName: Large Internet Company
     dates: "02/2023 - 05/2024"
-    summary: |-
-      Provided consulting and drove the technical win for >$5MM of Tanzu ARR and Services contracts in the US Public Sector.
+    location: Houston, TX (remote)
+    dates: "02/2023 - 05/2024"
     highlights:
+      - Provided consulting and drove the technical win for >$5MM of Tanzu ARR and Services contracts in the US Public Sector.
       - Guided the creation of a Platform Engineering center of excellence for a major program within the US Department of Defense.
       - Guided several engineering teams within the US Government on developing faster paths to production and more secure software supply chains.
   - title: Staff Solutions Architect
     company: VMware
     anonymizedName: Large Internet Company
     dates: "12/2020 - 02/2023"
-    summary: Executed and led consulting engagements focused on Kubernetes enablement and modern application development upskilling.
+    location: Dallas, TX (remote)
+    dates: "12/2020 - 02/2023"
     highlights:
       - Designed and built a Cloud Foundry-like and Kubernetes-agnostic developer
         platform in Bash that enabled developers within the US Government to go from
@@ -41,39 +38,35 @@ experience:
         capabilties at enterprise customers that reduced Platform Services onboarding
         by several weeks.
   - title: Senior Cloud Architect
+    location: Dallas, TX (remote)
     company: 10th Magnitude
     anonymizedName: Bespoke Azure Consultancy
     dates: "6/2020-11/2020"
-    summary: |-
-      Consulted engineering leaders at Fortune 100s on migrating and rearchitecting mission-critical applications
-      into Azure.
     highlights:
+      - Reduced deployment time of the company's leading Landing Zone service by 40%
+        through automation and authoring additional tooling.
       - Served as a principal consultant for a large retail provider through their
         migration onto Azure Kubernetes Service from OpenShift.
       - Conducted design sessions and discovery workshops for onboarding applications
         being refactored to cloud-native designs.
-      - Reduced deployment time of the company's leading Landing Zone service by 40%
-        through automation and authoring additional tooling.
   - title: Technical Principal
+    location: Dallas, TX (remote)
     company: Contino
     anonymizedName: Small DevOps Consultancy
     dates: "5/2017-6/2020"
-    summary: |-
-      Executed and led small consulting teams in helping the world's most highly-regulated
-      organizations embrace DevOps, upskill engineering capabilities and ship customer value faster
-      and easier.
     highlights:
-      - Lead several engagements for quickly enabling and upskilling large development
-        teams on foundational DevOps and Reliability Engineering topics.
       - Specialized in reducing deployment times into production environments by up to
         2000% at large and heavily-regulated enterprises within the FSI and Retail
         sectors.
+      - Lead several engagements for quickly enabling and upskilling large development
+        teams on foundational DevOps and Reliability Engineering topics.
       - Expanded the business into US Central and West regions through
         proposals, SoW generation, discovery workshops and pre-sales efforts (blogs
         and conference talks).
       - Grew senior consultants into Techncial Principals through coaching and
         mentorship.
   - title: Senior Consultant
+    location: Dallas, TX (remote)
     company: ThoughtWorks
     anonymizedName: Large Tech Consultancy
     dates: "5/2016-5/2017"
@@ -84,34 +77,6 @@ experience:
       - Implemented a development team environment creation pipeline using Puppet, Ruby and vRealize Operations that eliminated two weeks from a leading nationwide mortgage broker’s production release process.
       - Architected a containerized platform underlying a highly-efficient claims processing engine for a large, statewide insurance firm using Rancher, Kubernetes, Docker and VMware ESX/vSphere.
       - Created hiring and recruiting standards for the Infrastructure/DevOps Engineering position for ThoughtWorks nationwide.
-
-otherExperience:
-  - year: 2016
-    employer: Namely
-    item: >-
-      SRE for Namely Payroll. Maintained 99.5% uptime. Built automation to create multi-region Active Directory forests for testing AD SAML auth with third-party benefits providers.
-  - year: 2015
-    employer: Google
-    item: >-
-      SRE for Corp Eng Managed Systems. Built a Kerberized command execution sandbox for multi-thousand Windows server fleet across Google X and acquired entities to reduce team toil by 60%.
-  - year: 2014
-    employer: Two Sigma
-    item: >-
-      Improved effiency of new hire onboarding and terminations by >30% by
-      implementing a pluggable, Powershell-based employee management workflow engine. Designed
-      and led a proof-of-concept of Citrix XenDesktop VDIs for trading.
-  - year: 2012
-    employer: Jane Street
-    item: >-
-      Architected and built an in-house configuration management platform for kickstarting
-      and provisioning Windows servers from power-on using PowerShell and F#. Provided
-      advanced support for homegrown Excel Add-ons used for $USD billions of daily order flow.
-  - year: 2008
-    employe: Macquarie Capital
-    item: >-
-      Optimized in-house scripts that improved provisioning and decommissioning speed
-      of Dell and HP Windows servers worldwide by over 40%. Wrote scripts and other automation
-      to improve file server migration reliability.
 skills:
 - title: Cloud
   items:

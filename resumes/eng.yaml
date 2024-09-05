@@ -1,55 +1,50 @@
-additionalContactInfo:
-  - item: Top Secret Clearance
-    icon: briefcase
-    private: true
-  - item: Up to 80% Travel Preferred
-    icon: plane
 tagline: SRE, Platform Engineer, Kubernetes and Containers Nerd
 experience:
   - title: Federal Presales Engineer
     company: Wiz
     anonymizedName: Large Cybersecurity Startup
     dates: "05/2024 - Present"
-    summary: |-
-      Drove the technical win for >$2MM of Wiz ARR and provided technical contributions to the Wiz for Government FedRAMP environment.
     highlights:
+    location: Houston, TX (remote)
+    highlights:
+    - Drove the technical win for >$2MM of Wiz ARR and provided technical contributions to the Wiz for Government FedRAMP environment.
     - Designed bespoke demos and proof-of-values to accelerate deal close and time to value for the customer
     - Accelerated complex demo creation with demo automation based on Terraform, Bash and Make
   - title: Federal Presales Engineer
     company: VMware
     anonymizedName: Large Internet Company
+    location: Houston, TX (remote)
     dates: "02/2023 - 05/2024"
-    summary: |-
-      Provided consulting on operating air-gapped Kubernetes clusters and implementing container-native
-      application refactoring for the US Department of Defense.
     highlights: 
       - Created architecture for and wrote an automation framework for standing up demos of
         Tanzu Application Platform and Tanzu Mission Control in minutes instead of hours.
       - Provided guidance and technical leadership on onarchitecture for next-generation
         containerized and multi-cloud eveloper platform for a US Air Force program that accelerated
         capability delivery by several weeks.
-      - Led and mentored fellow Solutions Engineers on positioning and
-        understanding the internal architecture of Tanzu Mission Control
-        Self-Managed.
+      - Provided consulting on operating air-gapped Kubernetes clusters and implementing container-native
+        application refactoring for the US Department of Defense.
   - title: Staff Solutions Architect
     company: VMware
     anonymizedName: Large Internet Company
     dates: "12/2020 - 02/2023"
-    summary: Executed and led consulting engagements focused on Kubernetes enablement and modern application development upskilling.
+    location: Dallas, TX (remote)
+    dates: "12/2020 - 02/2023"
     highlights:
-      - Designed and built an innovative Cloud Foundry-like and Kubernetes-agnostic developer platform to enable developers to deploy containerized applications on their
-        own clusters in minutes.
-      - Significantly reduced post-sales installation and implementation bottlenecks of SaaS and
-        Tanzu software by writing, documenting and creating architecture for an innovative,
-        highly-concurrent and language-agnostic preflight checking framework.
+      - Designed and built an innovative Cloud Foundry-like and Kubernetes-agnostic developer
+        platform to enable developers to deploy containerized applications on their own clusters in
+        minutes.
       - Accelerated production deployments of six major applications at a national retailer
         through pairing, test-driven development, and leveraging local Kubernetes clusters
         and Docker Compose.
+      - Significantly reduced post-sales installation and implementation bottlenecks of SaaS and
+        Tanzu software by writing, documenting and creating architecture for an innovative,
+        highly-concurrent and language-agnostic preflight checking framework.
       - Collaborated with product teams and R&D to improve Tanzu Build Service and Tanzu
         Kubernetes Grid.
   - title: Senior Cloud Architect
     company: 10th Magnitude
     anonymizedName: Bespoke Azure Consultancy
+    location: Dallas, TX (remote)
     dates: "6/2020-11/2020"
     summary: |-
       Consulted engineering leaders at Fortune 100s on migrating and rearchitecting mission-critical applications
@@ -64,73 +59,21 @@ experience:
   - title: Technical Principal
     company: Contino
     anonymizedName: Small DevOps Consultancy
+    location: Dallas, TX (remote)
     dates: "5/2017-6/2020"
     summary: |-
       Executed and led small consulting teams in helping the world's most highly-regulated
       organizations embrace DevOps, improve cloud infrastructure, and upskill engineering capabilities
       and ship customer value faster and easier.
     highlights:
-      - Improved request-per-second performance of a global IT inventory service by
-        >100% while reducing team toil over 50% with SLOs, automated performance testing
-        and introducing test-driven development.
       - Removed 17 days from a 400+ day release cycle of a popular banking backoffice
         application by leveraging NUnit, Selenium, Docker Compose and containerized
         Jenkins instances.
+      - Improved request-per-second performance of a global IT inventory service by
+        >100% while reducing team toil over 50% with SLOs, automated performance testing
+        and introducing test-driven development.
       - Supported and wrote observability tooling for a multi-hundred node distributed system
         powered by Docker Enterprise.
-projects:
-  - title: Status
-    tagline: |-
-      Keep colleagues informed by automating your Slack status based on
-      outside events. Ruby, AWS Lambda, Terraform. [link](https://github.com/carlosonunez/slack-status-bot)
-  - title: FlightAware Summarizer
-    tagline: |-
-      Summarize FlightAware and other flight trackers into a compact JSON blob.  Useful for iOS
-      Shortcuts and other automations. Python, AWS Lambda, Terraform.
-      [link](https://github.com/carlosonunez/travel-update-bot)
-  - title: Docker Proxy
-    tagline: |-
-      Connect to and browse through multiple Cisco AnyConnect and OpenVPN VPNs from your machine
-      through lightweight Docker containers. [link](https://github.com/carlosonunez/docker-proxy)
-  - title: Passport Parking Bot
-    tagline: |-
-      Automatically renew Passport Parking sessions in Lincoln, NE. Ruby, AWS SQS, Selenium,
-      Terraform. [link](https://github.com/carlosonunez/lincoln-ne-parking-bot)
-otherExperience:
-  - year: 2016
-    employer: Namely
-    item: >-
-      Created architecture for, written and deployed an automated multi-region Active Directory
-      forests with Ansible and Python. Supported Namely Payroll and other Windows-based workloads.
-      Automated fleet provisioning with PowerShell, TeamCity and Octopus Deploy to enable hird-party
-      employee payroll providers to securely test AD SSAML auth against Namely's auth service.
-  - year: 2015
-    employer: Google
-    item: >-
-      Increased security and mitigated unprivileged command execution of Windows infrastructure
-      within Google X and acquired Google properties through implementing a Kerberized and
-      Powershell-based command execution sandbox as a Rundeck plugin. Supported and maintained the
-      reliability of 5,000+ fleet of Windows and Linux virtual machines. Automated provisioning and
-      configuration management with Puppet, Python and PowerShell.
-  - year: 2014
-    employer: Two Sigma
-    item: >-
-      Improved effiency of new hire onboarding and terminations by >30% by creating architecture for
-      and implementing a pluggable and scalable, Powershell-based employee management workflow
-      engine. Designed and led a proof-of-concept of Citrix XenDesktop VDIs for trading.
-  - year: 2012
-    employer: Jane Street
-    item: >-
-      Authored architecture for and built an in-house configuration management platform for kickstarting
-      and provisioning Windows servers from power-on using PowerShell and F#. Provided
-      advanced support for homegrown Excel Add-ons used for $USD billions of daily order flow.
-  - year: 2008
-    employe: Macquarie Capital
-    item: >-
-      Optimized and refactored VBscript scripts to improve provisioning and decommissioning speed
-      of Dell and HP Windows servers worldwide by over 40%. Wrote scripts and other automation
-      to improve DFSR-enabled file server migration reliability. Supported and was on-call for 1,000+
-      Windows server fleet worldwide.
 skills:
 - title: Public Cloud
   items:

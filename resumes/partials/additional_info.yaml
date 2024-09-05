@@ -1,0 +1,6 @@
+additionalContactInfo:
+  - item: Top Secret Clearance
+    icon: briefcase
+    private: true
+  - item: Up to 80% Travel Preferred
+    icon: plane
