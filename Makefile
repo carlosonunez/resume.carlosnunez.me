@@ -26,16 +26,18 @@ build:
 
 test: .ensure-resume-type .fetch-resume .create-output-dir .generate-config-toml
 test:
+	trap '$(DOCKER_COMPOSE) down; exit $$?' INT; \
 	$(DOCKER_COMPOSE) down; \
 	while true; \
 	do \
-		trap 'rc=$$?; $(DOCKER_COMPOSE) down; exit $$?' INT HUP EXIT; \
 		$(MAKE) .test; \
 		{ test -n "$$TEST_ONCE" || test -n "$$TEST_NO_WAIT"; } && break; \
 	done;
+	$(DOCKER_COMPOSE) down; \
 
+pdf: .ensure-resume-type .fetch-resume .create-output-dir .generate-config-toml
 pdf:
-	TEST_NO_WAIT=1 $(MAKE) test || exit 1; \
+	TEST_NO_WAIT=1 $(MAKE) .test || exit 1; \
 	trap 'rc=$$?; $(DOCKER_COMPOSE) down; exit $$?' INT HUP EXIT; \
 	$(MAKE) .wait-for-test-env-ready && \
 		$(DOCKER_COMPOSE) run --rm generate-pdf;
@@ -108,10 +110,10 @@ decrypt-specific:
 	>&2 echo "ERROR: timed out while waiting for test environment to come up."; \
 	exit 1
 
-.test: .ensure-resume-type .fetch-resume .create-output-dir .generate-config-toml
 .test:
+	set -x; \
 	$(DOCKER_COMPOSE) down; \
-	$(DOCKER_COMPOSE) up --wait -d see-resume || exit 1; \
+	$(DOCKER_COMPOSE) up --wait -d see-resume; \
 	if test -z "$$TEST_NO_WAIT"; \
 	then \
 		>&2 read -s -n1 -p  "INFO: Resume is now available at http://localhost:8080. Press any key \
