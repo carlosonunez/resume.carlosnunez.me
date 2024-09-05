@@ -4,33 +4,42 @@ additionalContactInfo:
     icon: briefcase
     private: true
   - item: Up to 80% Travel Preferred
-    icon: airplane
+    icon: plane
 experience:
-  - title: Presales Solution Engineer
+  - title: Federal Presales Engineer
+    company: Wiz
+    anonymizedName: Large Cybersecurity Startup
+    dates: "05/2024 - Present"
+    summary: |-
+      Drove the technical win for >$2MM of Wiz ARR and provided technical contributions to the Wiz for Government FedRAMP environment.
+    highlights:
+    - Designed bespoke demos and proof-of-values to accelerate deal close and time to value for the customer
+    - Accelerated complex demo creation with demo automation based on Terraform, Bash and Make
+  - title: Federal Presales Engineer
     company: VMware
     anonymizedName: Large Internet Company
-    dates: "02/2023 - Present"
+    dates: "02/2023 - 05/2024"
     summary: |-
       Provided consulting and drove the technical win for >$5MM of Tanzu ARR and Services contracts in the US Public Sector.
-    highlights: 
+    highlights:
       - Guided the creation of a Platform Engineering center of excellence for a major program within the US Department of Defense.
       - Guided several engineering teams within the US Government on developing faster paths to production and more secure software supply chains.
   - title: Staff Solutions Architect
     company: VMware
     anonymizedName: Large Internet Company
-    dates: "12/2020 - Present"
+    dates: "12/2020 - 02/2023"
     summary: Executed and led consulting engagements focused on Kubernetes enablement and modern application development upskilling.
     highlights:
+      - Designed and built a Cloud Foundry-like and Kubernetes-agnostic developer
+        platform in Bash that enabled developers within the US Government to go from
+        idea to production on their own Kubernetes clusters with a single manifest
+        file in minutes.
       - Paired with several application teams at a large national retailer to reduce
         deployment times by as much as 40% while migrating to OpenShift and improving
         codebase test coverage and release safety.
       - Architected a comprehensive, 70+ point framework for assessing DevOps and SRE
         capabilties at enterprise customers that reduced Platform Services onboarding
         by several weeks.
-      - Designed and built a Cloud Foundry-like and Kubernetes-agnostic developer
-        platform in Bash that enabled developers within the US Government to go from
-        idea to production on their own Kubernetes clusters with a single manifest
-        file in minutes.
   - title: Senior Cloud Architect
     company: 10th Magnitude
     anonymizedName: Bespoke Azure Consultancy

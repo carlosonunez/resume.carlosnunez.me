@@ -6,10 +6,19 @@ additionalContactInfo:
     icon: plane
 tagline: SRE, Platform Engineer, Kubernetes and Containers Nerd
 experience:
-  - title: Presales Solution Engineer
+  - title: Federal Presales Engineer
+    company: Wiz
+    anonymizedName: Large Cybersecurity Startup
+    dates: "05/2024 - Present"
+    summary: |-
+      Drove the technical win for >$2MM of Wiz ARR and provided technical contributions to the Wiz for Government FedRAMP environment.
+    highlights:
+    - Designed bespoke demos and proof-of-values to accelerate deal close and time to value for the customer
+    - Accelerated complex demo creation with demo automation based on Terraform, Bash and Make
+  - title: Federal Presales Engineer
     company: VMware
     anonymizedName: Large Internet Company
-    dates: "02/2023 - Present"
+    dates: "02/2023 - 05/2024"
     summary: |-
       Provided consulting on operating air-gapped Kubernetes clusters and implementing container-native
       application refactoring for the US Department of Defense.
@@ -25,7 +34,7 @@ experience:
   - title: Staff Solutions Architect
     company: VMware
     anonymizedName: Large Internet Company
-    dates: "12/2020 - Present"
+    dates: "12/2020 - 02/2023"
     summary: Executed and led consulting engagements focused on Kubernetes enablement and modern application development upskilling.
     highlights:
       - Designed and built an innovative Cloud Foundry-like and Kubernetes-agnostic developer platform to enable developers to deploy containerized applications on their
