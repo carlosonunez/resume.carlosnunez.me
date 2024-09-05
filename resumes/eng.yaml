@@ -4,7 +4,6 @@ experience:
     company: Wiz
     anonymizedName: Large Cybersecurity Startup
     dates: "05/2024 - Present"
-    highlights:
     location: Houston, TX (remote)
     highlights:
     - Drove the technical win for >$2MM of Wiz ARR and provided technical contributions to the Wiz for Government FedRAMP environment.
@@ -26,7 +25,6 @@ experience:
   - title: Staff Solutions Architect
     company: VMware
     anonymizedName: Large Internet Company
-    dates: "12/2020 - 02/2023"
     location: Dallas, TX (remote)
     dates: "12/2020 - 02/2023"
     highlights:
