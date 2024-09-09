@@ -1,7 +1,7 @@
 SHELL := /usr/bin/env bash
 MAKEFLAGS += --silent
 THEME_URL = https://github.com/carlosonunez/hugo-simpleresume-theme
-THEME_VERSION = 2024.09.05
+THEME_VERSION = 2024.09.09.2
 DOCKER_COMPOSE = docker-compose --log-level ERROR
 PERCENT := %
 MAKE_ANONYMOUS ?= false
@@ -75,6 +75,7 @@ decrypt-specific:
 
 .generate-config-toml:
 	export VERSION=$$($(MAKE) .current-version); \
+	export LAST_UPDATED=$$(git log -1 --format=$(PERCENT)cs); \
 	if test "$(PERSONA)" == 'example' || grep -iq 'true' <<< "$(MAKE_ANONYMOUS)"; \
 	then $(DOCKER_COMPOSE) run --rm generate-resume-config-anon > $(PWD)/output/$(PERSONA)-config.toml; \
 	else $(DOCKER_COMPOSE) run --rm generate-resume-config > $(PWD)/output/$(PERSONA)-config.toml; \

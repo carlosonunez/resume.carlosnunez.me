@@ -12,6 +12,7 @@ services:
     environment:
       - PERSONA
       - VERSION
+      - LAST_UPDATED
   hugo:
     extends: resume
     entrypoint: hugo
@@ -146,6 +147,7 @@ services:
          ytt -v dns_zone=$DNS_ZONE \
           -v persona=$PERSONA \
           -v version=$VERSION \
+          -v lastUpdated=$LAST_UPDATED \
           --data-values-file '/config.yaml' \
           --data-values-file './${PERSONA}.yaml'  \
           --data-values-file './partials' \
