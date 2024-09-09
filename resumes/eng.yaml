@@ -1,4 +1,11 @@
 showCourses: true
+resumeOrder:
+  - skills
+  - experience
+  - older_experience
+  - publications
+  - education
+  - interests
 tagline: SRE, Platform Engineer, Kubernetes and Containers Nerd
 experience:
   - title: Federal Presales Engineer

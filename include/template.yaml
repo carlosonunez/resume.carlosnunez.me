@@ -11,6 +11,7 @@ publishDir: /output
 #@ if/end hasattr(data.values, "googleAnalyticsCode"):
 googleAnalytics: #@ data.values.googleAnalyticsCode
 params:
+  resumeOrder: #@ data.values.resumeOrder
   persona: #@ data.values.persona
   github:
     repo: https://github.com/carlosonunez/resume.carlosnunez.me
@@ -27,6 +28,9 @@ params:
     location: "1942 West Gray #1165, Houston TX, 77019"
     phone: 469-382-9361
     email: work@carlosnunez.me
+  social:
+    github: carlosonunez
+    linkedin: carlosinhtx
   education:
     enable: true
     list:
@@ -45,15 +49,6 @@ params:
       - name: Beer and breweries
       - name: Coffee (v60 switch with Chemex filters)
       - name: Minimalist sneakers and sandals
-  social:
-    enable: true
-    list:
-      - icon: fab fa-github-square
-        url: //github.carlosnunez.me
-        title: "@carlosonunez"
-      - icon: fab fa-linkedin
-        url: //linkedin.carlosnunez.me
-        title: carlosinhtx
   experience:
     enable: true
     list:
