@@ -12,6 +12,7 @@ publishDir: /output
 googleAnalytics: #@ data.values.googleAnalyticsCode
 params:
   lastUpdated: #@ data.values.lastUpdated
+  #@ if/end hasattr(data.values, "resumeOrder"):
   resumeOrder: #@ data.values.resumeOrder
   persona: #@ data.values.persona
   github:
