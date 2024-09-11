@@ -42,7 +42,7 @@ dns:
   zone: carlosnunez.me
   root: resume
 resume:
-  default_persona: consulting
+  default_persona: eng
   personas:
   # type: The "type" of resume. Useful if you want to show different personas to different
   #       employers.
