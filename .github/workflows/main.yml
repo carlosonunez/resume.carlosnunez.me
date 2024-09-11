@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - 'resumes/**'
-      - 'config.toml'
+      - 'config.yaml'
       - 'Dockerfile'
       - 'env.gpg'
       - '.kickCI/**'
