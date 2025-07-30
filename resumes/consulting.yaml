@@ -72,13 +72,12 @@ skills:
 - title: Containers
   items:
     - Kubernetes
-    - Docker
+    - Docker/Podman
     - Developer platforms
 - title: Software Engineering
   items:
     - Golang
     - Bash
-    - Ruby
 - title: Agile and Leadership Skills
   items:
     - Value stream mapping
@@ -96,6 +95,7 @@ skills:
     - Value-based selling
     - Technical discovery
     - Modern application transformation
+    - Proof of Concepts
 projects:
   - title: International Financial Services Company
     tagline: "Reduced a 400 day+ path to production by 17 days through building cross-functional teams, value stream mapping and tracer bullets"

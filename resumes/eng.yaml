@@ -97,20 +97,20 @@ skills:
     - Container runtimes (Docker, `containerd`, Podman)
     - Monitoring (Prometheus, Grafana, Jaeger)
     - Networking (Istio, CNIs)
-    - Ingress (Contour, NGINX)
+    - Ingress (Contour, NGINX, Traefik)
     - Observability/Telemetry (Jaeger)
 - title: DevOps Fundamentals
   items:
-    - Infra provisioning (Terraform, Pulumi)
+    - Infra provisioning (Terraform/OpenTofu, Pulumi)
     - Config management (Chef, Ansible)
-    - Infrastructure testing (Goss)
-    - CI/CD (Jenkins, GitHub Actions, GitLab CI, Azure DevOps)
+    - Infrastructure testing (Goss, BATS)
+    - CI/CD (Jenkins, GitHub Actions, GitLab CI)
 - title: Linux
   items:
     - Tracing (strace)
     - Text Manipulation (`vim`, `emacs`, `awk`, `grep`, `sed`, etc.)
     - Troubleshooting (`top`, `htop`, `netcat`, `lsof`, `xxd`, etc.)
-    - Init systems (`tini`, s6, SysV, SystemD...unfortunately)
+    - Init systems (`tini`, s6, SysV, SystemD)
 - title: Windows
   items:
     - Tracing (Procmon, Event Viewer/ETW)
@@ -132,6 +132,7 @@ skills:
     - Secrets management (Vault, dotenv)
     - Container image scanning (Clair, Trivy)
     - Static code analysis tools
+    - CSPM/KSPM tools (Wiz, Snyk)
 - title: Web Dev
   items:
     - Automation (Puppeteer/Capybara)
