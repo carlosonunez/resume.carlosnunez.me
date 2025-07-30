@@ -1,8 +1,4 @@
 courses:
-  - name: "DevOps Fundamentals: Your First Project"
-    url: https://www.linkedin.com/learning/devops-foundations-your-first-project-24355651
-    year: 2018
-    publisher: LinkedIn Learning
   - name: Learning Docker
     url: https://www.linkedin.com/learning/learning-docker-17236240
     year: 2022
@@ -11,11 +7,15 @@ courses:
     url: https://www.linkedin.com/learning/docker-essential-training
     year: 2023
     publisher: LinkedIn Learning
-  - name: "Kubernetes: Your First Project"
-    url: https://www.linkedin.com/learning/kubernetes-your-first-project
-    year: 2021
-    publisher: LinkedIn Learning
   - name: Kubernetes Provisioning for Infrastructure As Code
     year: 2023
     publisher: LinkedIn Learning
     url: https://www.linkedin.com/learning/kubernetes-provisioning-for-infrastructure-as-code
+  - name: "DevOps Fundamentals: Your First Project"
+    url: https://www.linkedin.com/learning/devops-foundations-your-first-project-24355651
+    year: 2024
+    publisher: LinkedIn Learning
+  - name: "Kubernetes: Your First Project"
+    url: https://www.linkedin.com/learning/kubernetes-your-first-project-24688192
+    year: 2025
+    publisher: LinkedIn Learning
