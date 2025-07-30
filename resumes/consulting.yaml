@@ -62,18 +62,6 @@ experience:
         and conference talks).
       - Grew senior consultants into Techncial Principals through coaching and
         mentorship.
-  - title: Senior Consultant
-    location: Dallas, TX (remote)
-    company: ThoughtWorks
-    anonymizedName: Large Tech Consultancy
-    dates: "5/2016-5/2017"
-    summary: |-
-      Built tools and automations for developer platforms and provided thought leadership on DevOps talking points through blogs, workshops and talks.
-    highlights:
-      - Architected and successfully delivered a proof-of-concept of automated infrastructure deployment as code using Terraform and Chef for a large multi-national credit lending company.
-      - Implemented a development team environment creation pipeline using Puppet, Ruby and vRealize Operations that eliminated two weeks from a leading nationwide mortgage broker’s production release process.
-      - Architected a containerized platform underlying a highly-efficient claims processing engine for a large, statewide insurance firm using Rancher, Kubernetes, Docker and VMware ESX/vSphere.
-      - Created hiring and recruiting standards for the Infrastructure/DevOps Engineering position for ThoughtWorks nationwide.
 skills:
 - title: Cloud
   items:

@@ -1,4 +1,9 @@
 otherExperience:
+  - year: 2017
+    employer: ThoughtWorks
+    location: Dallas, TX
+    item: >-
+      Cloud consulting for Fortune 100 companies. Built automation to provision infrastructure and app deployments and create ephemeral development environments.
   - year: 2016
     employer: Namely
     location: New York
