@@ -1,10 +1,21 @@
 showCourses: true
 experience:
+  - title: Principal Solutions Architect - Financial Services
+    company: Red Hat
+    anonymizedName: Global Software Company
+    location: Houston, TX (remote)
+    dates: "01/2025 - Present"
+    highlights:
+    - Responsible for setting technical pre-sales strategy and product growth at a global payments network
+      and a global cloud-native consumer bank.
+    - Drove the technical win for net-new OpenShift AI consumption at a global payments network
+    - Designed a framework for accelerating and streamlining AI proof-of-concepts for FSI customers
+    - Built a lightweight CVE remediation framework to improve customer-facing CVE response times.
   - title: Federal Presales Engineer
     company: Wiz
     anonymizedName: Large Cybersecurity Startup
     location: Houston, TX (remote)
-    dates: "05/2024 - Present"
+    dates: "05/2024 - 12/2024"
     highlights:
     - Drove the technical win for >$2MM of Wiz ARR and provided technical contributions to the Wiz for Government FedRAMP environment.
     - Designed bespoke demos and proof-of-values to accelerate deal close and time to value for the customer

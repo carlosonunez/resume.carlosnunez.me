@@ -8,10 +8,19 @@ resumeOrder:
   - interests
 tagline: SRE, Platform Engineer, Kubernetes and Containers Nerd
 experience:
+  - title: Principal Solutions Architect - Financial Services
+    company: Red Hat
+    anonymizedName: Global Software Company
+    location: Houston, TX (remote)
+    dates: "01/2025 - Present"
+    highlights:
+    - Built an internal CVE comparison tool with Bash, Podman, Clair and Snyk to accelerate customer-led CVE inquiries.
+    - Participated in a working-group for building multi-cloud reference architectures using Red Hat products.
+    - Contributed various PRs to open-source projects, like Clair
   - title: Federal Presales Engineer
     company: Wiz
     anonymizedName: Large Cybersecurity Startup
-    dates: "05/2024 - Present"
+    dates: "05/2024 - 12/2024"
     location: Houston, TX (remote)
     highlights:
     - Drove the technical win for >$2MM of Wiz ARR and provided technical contributions to the Wiz for Government FedRAMP environment.
