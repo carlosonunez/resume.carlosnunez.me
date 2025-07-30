@@ -101,3 +101,7 @@ projects:
     tagline: "Reduced a 400 day+ path to production by 17 days through building cross-functional teams, value stream mapping and tracer bullets"
   - title: National Fashion Retailer
     tagline: Developed a dojo-style enablement framework for migrating legacy applications into OpenShift in weeks instead of months
+  - title: US Defense Agency
+    tagline: Architected and built a Kubernetes-native developer platform for use in remote, air-gapped environments, entirely in Bash.
+  - title: Global Payments Network
+    tagline: Drove a complex and cross-BU proof-of-concept for OpenShift AI for novel generative AI use cases.
