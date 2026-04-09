@@ -78,25 +78,12 @@ experience:
         Azure Kubernetes Service from OpenShift at a major national retailer.
       - Mentored junior engineers by providing career progression advice and
         technical enablement.
-  - title: Technical Principal
-    company: Contino
-    anonymizedName: Small DevOps Consultancy
-    location: Dallas, TX (remote)
-    dates: "5/2017-6/2020"
-    summary: |-
-      Executed and led small consulting teams in helping the world's most highly-regulated
-      organizations embrace DevOps, improve cloud infrastructure, and upskill engineering capabilities
-      and ship customer value faster and easier.
-    highlights:
-      - Removed 17 days from a 400+ day release cycle of a popular banking backoffice
-        application by leveraging NUnit, Selenium, Docker Compose and containerized
-        Jenkins instances.
-      - Improved request-per-second performance of a global IT inventory service by
-        >100% while reducing team toil over 50% with SLOs, automated performance testing
-        and introducing test-driven development.
-      - Supported and wrote observability tooling for a multi-hundred node distributed system
-        powered by Docker Enterprise.
 skills:
+- title: AI/Agents
+  items:
+    - Claude Code
+    - ChatGPT
+    - vLLM
 - title: Public Cloud
   items:
     - AWS
@@ -107,6 +94,12 @@ skills:
     - vSphere
     - KVM
     - QEMU
+- title: Kubernetes
+  items:
+    - OpenShift Container Platform
+    - AWS EKS
+    - k3s
+    - GitOps (ArgoCD/Flux)
 - title: Containers
   items:
     - Container orchestration (Kubernetes, Compose)

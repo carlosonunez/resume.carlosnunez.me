@@ -59,23 +59,12 @@ experience:
         migration onto Azure Kubernetes Service from OpenShift.
       - Conducted design sessions and discovery workshops for onboarding applications
         being refactored to cloud-native designs.
-  - title: Technical Principal
-    location: Dallas, TX (remote)
-    company: Contino
-    anonymizedName: Small DevOps Consultancy
-    dates: "5/2017-6/2020"
-    highlights:
-      - Specialized in reducing deployment times into production environments by up to
-        2000% at large and heavily-regulated enterprises within the FSI and Retail
-        sectors.
-      - Lead several engagements for quickly enabling and upskilling large development
-        teams on foundational DevOps and Reliability Engineering topics.
-      - Expanded the business into US Central and West regions through
-        proposals, SoW generation, discovery workshops and pre-sales efforts (blogs
-        and conference talks).
-      - Grew senior consultants into Techncial Principals through coaching and
-        mentorship.
 skills:
+- title: AI/Agents
+  items:
+    - Claude Code
+    - ChatGPT
+    - vLLM
 - title: Cloud
   items:
     - AWS
@@ -84,7 +73,7 @@ skills:
     - Serverless
 - title: Containers
   items:
-    - Kubernetes
+    - Kubernetes (xKS, OpenShift)
     - Docker/Podman
     - Developer platforms
 - title: Software Engineering
