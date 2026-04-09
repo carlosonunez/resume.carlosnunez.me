@@ -19,7 +19,7 @@ jobs:
 
       - uses: docker/setup-compose-action@v2
         with:
-          version: 5.1.2
+          version: v5.1.2
 
       - name: Decrypt environment file
         run: |-
