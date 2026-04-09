@@ -17,9 +17,9 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - uses: KengoTODA/actions-setup-docker-compose@v1
+      - uses: docker/setup-compose-action@v2
         with:
-          version: 2.21.0
+          version: 2.40.3
 
       - name: Decrypt environment file
         run: |-

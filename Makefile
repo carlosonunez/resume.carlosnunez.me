@@ -2,7 +2,8 @@ SHELL := /usr/bin/env bash
 MAKEFLAGS += --silent
 THEME_URL = https://github.com/carlosonunez/hugo-simpleresume-theme
 THEME_VERSION = 2024.09.09.2
-DOCKER_COMPOSE = docker-compose --log-level ERROR
+DOCKER_COMPOSE = docker --log-level ERROR compose
+DOCKER_COMPOSE_CI = docker --log-level ERROR compose -f docker-compose.ci.yml
 PERCENT := %
 MAKE_ANONYMOUS ?= false
 
@@ -42,6 +43,15 @@ pdf:
 	$(MAKE) .wait-for-test-env-ready && \
 		$(DOCKER_COMPOSE) run --rm generate-pdf;
 
+encrypt-env: .ensure-env-password
+encrypt-env:
+	ENV_PASSWORD="$$ENV_PASSWORD" $(DOCKER_COMPOSE_CI) run --rm encrypt-env
+
+decrypt-env: .ensure-env-password
+decrypt-env:
+	ENV_PASSWORD="$$ENV_PASSWORD" $(DOCKER_COMPOSE_CI) run --rm decrypt-env
+
+
 encrypt-wip: .ensure-resume-password
 encrypt-wip:
 	RESUME_PASSWORD="$$RESUME_PASSWORD" $(DOCKER_COMPOSE) run --rm encrypt-wip
@@ -61,6 +71,11 @@ decrypt-specific:
 .ensure-resume-password:
 	test -z "$$RESUME_PASSWORD" || exit 0; \
 	>&2 echo "ERROR: Please define RESUME_PASSWORD to encrypt and decrypt resumes."; \
+	exit 1; \
+
+.ensure-env-password:
+	test -z "$$ENV_PASSWORD" || exit 0; \
+	>&2 echo "ERROR: Please define ENV_PASSWORD to encrypt and decrypt the dotfile for this repo."; \
 	exit 1; \
 
 .ensure-resume-type:
