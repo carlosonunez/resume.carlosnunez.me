@@ -10,11 +10,11 @@ export BUILD_ARCH="${BUILD_ARCH:-amd64}"
 export ENV_PASSWORD="${ENV_PASSWORD?Please provide an environment password.}"
 
 exec_docker_compose() {
-  if test -f ./docker-compose
-  then
-    ./docker-compose --log-level ERROR "$@"
-  else
-    docker-compose --log-level ERROR "$@"
+  if test -n "$(2>/dev/null docker compose version)"
+  then docker --log-level ERROR compose "$@"
+  elif test -f ./docker-compose
+  then ./docker-compose --log-level ERROR "$@"
+  else docker-compose --log-level ERROR "$@"
   fi
 }
 
