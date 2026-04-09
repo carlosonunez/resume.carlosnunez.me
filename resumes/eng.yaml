@@ -14,9 +14,16 @@ experience:
     location: Houston, TX (remote)
     dates: "01/2025 - Present"
     highlights:
-    - Built an internal CVE comparison tool with Bash, Podman, Clair and Snyk to accelerate customer-led CVE inquiries.
-    - Contributed various PRs to open-source projects, like Clair and Kustomize.
-    - Leveraged Bash, Ansible and Flux to build infrastructure for a multi-cloud app failover demo on OpenShift.
+    - Architected custom demos for complex sales motions, such as stateful multicloud active-passive
+      failover with OpenShift using sOps, Flux, ArgoCD, Bash, Ansible and other tools.
+    - Accelerated custom demo creation and delivery by building a container- and Kubernetes-native
+      custom demo harness with repeatable base environments.
+    - Specialized in user-provisioned OpenShift installations on AWS and bare-metal with
+      heavily-regulated financial services customers.
+    - Shipped several pull requests to Kustomize, Clair and various Red Hat components to incorporate
+      customer feedback from proof-of-concepts, demos and workshops with financial services customers.
+    - Leveraged open-source and foundation LLMs with vLLM/OpenShift AI to demonstrate AI-enabled
+      application development on OpenShift with open-source code assistants and coding agents.
   - title: Federal Presales Engineer
     company: Wiz
     anonymizedName: Large Cybersecurity Startup

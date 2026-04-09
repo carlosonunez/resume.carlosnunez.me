@@ -6,10 +6,13 @@ experience:
     location: Houston, TX (remote)
     dates: "01/2025 - Present"
     highlights:
-    - Responsible for setting technical pre-sales strategy and product growth at a global payments network and a global cloud-native bank.
-      and a global cloud-native consumer bank.
-    - Delivered the technical win for net-new OpenShift AI consumption at a global payments network
-    - Designed a framework for accelerating and streamlining AI proof-of-concepts for FSI customers
+    - "Delivered PoCs, workshops and custom demos for Internet-disconnected OpenShift Container
+      Platform, OpenShift App Services, and OpenShift AI opportunities with financial services
+      customers (average deal size: $1M)"
+    - Built and delivered a custom multi-cloud and multi-partner demo highlighting stateful, multicloud
+      active-passive failover with OpenShift Container Platform and Red Hat Advanced Cluster Management.
+    - Contributed pull requests, documentation and field feedback for various components of OpenShift
+      Container Platform, Red Hat Advanced Cluster Security and Red Hat Advanced Cluster Management.
   - title: Federal Presales Engineer
     company: Wiz
     anonymizedName: Large Cybersecurity Startup

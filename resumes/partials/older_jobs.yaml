@@ -1,4 +1,11 @@
 otherExperience:
+  - year: 2020
+    employer: Contino
+    location: Dallas, TX
+    item: >-
+      Executed and led small consulting teams in helping the world's most highly-regulated
+      organizations embrace DevOps, improve cloud infrastructure, and upskill engineering capabilities
+      and ship customer value faster and easier.
   - year: 2017
     employer: ThoughtWorks
     location: Dallas, TX
