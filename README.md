@@ -164,3 +164,15 @@ To use this feature:
    ```sh
    RESUME_PASSWORD=passphrase make decrypt-specific
    ```
+
+## AI Policy
+
+If you're reading this, you probably noticed that this resume has an `AGENTS.md`
+and leverages them for some stuff. Here's a summary of how AI is used on my
+resumes and resume applications:
+
+- AI is NEVER used for application submission. It's only used to automate
+  the manual research that I've done in the past.
+- Job experience produced by AI ALWAYS uses my actual experience --- here and
+  elsewhere --- to generate recommendations.
+- I do not use AI at all during interviews unless explicitly told to do so.
