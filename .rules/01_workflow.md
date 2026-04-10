@@ -3,12 +3,19 @@ This is the workflow that you'll follow for EVERY new session.
 DO NOT, UNDER ANY CIRCUMSTANCES, do anything BUT this workflow. Not even for
 emergencies.
 
+AGENTS ARE NEVER ALLOWED TO MODIFY THIS FILE. It must always be modified by a
+human. If a modification is needed, **STOP** and ask the human to perform the
+modification before continuing.
+
+## Workflow
+
 0. Ensure that the `/browser` skill is ready to be used (install anything
    required to make it work; confirm paths to applications; etc.)
 1. Ask for the name of the employer.
-2. Ask for the title of the role. This is ALWAYS a single sentence and fewer than
-   seven words. REJECT anything that doesn't meet this criteria and keep asking
-   me until I provide a valid role.
+2. Ask for the title of the role.
+     - **IMPORTANT**: This is ALWAYS a single sentence and fewer than seven
+       words. REJECT anything that doesn't meet this criteria and keep asking me
+       until I provide a valid role.
 3. Ask for a copy of the job description. This might be long.
 4. Ask for the URL to the job application.
 5. Outline my job preferences in `02_job_preferences.md` and ask me whether I
@@ -19,15 +26,16 @@ emergencies.
    re-run this step until I say "no".
 
    > **NOTE**: DO NOT modify `02_job_preferences.md` with anything OTHER than
-   > what I provide IF I SAY "no".
+   > what I provide IF AND ONLY IF I SAY "no".
 5. Analyze the experience and skills I have outlined in the
    `resumes/consulting.yaml` and `resumes/eng.yaml` resume partials to tell me
-   whether I'm a fit for the role based on the job description.
+   whether I'm a fit for the role based solely on the job description.
 
    (Make sure to consider ALL previous commits to these files to get more
    information about past jobs.)
 
-   Tell me whether you think I'm a fit or not and why (three bullet points).
+   Tell me whether you think I'm a WEAK, MEDIUM, or STRONG fit or not and why
+   (three bullet points).
 
    Ask me if I want to continue generating a resume partial ("yes"/"y" for yes;
    "no"/"n" for no; case insensitive; "yes" is the default answer).
@@ -37,10 +45,10 @@ emergencies.
    doing the following:
     - Search for reviews of the employer on Glassdoor and TeamBlind based on the
       role and company.
-    - Search AT MOST FIVE LinkedIn profiles of people with this role or company
+    - Search AT MOST TEN LinkedIn profiles of people with this role or company
       name in their history. Summarize their experience and use that in your
       research.
-      - If any of these LinkedIn profiles have GitHub accounts attached to it,
+      - If any of these LinkedIn profiles have GitHub accounts attached to them,
         visit their GitHub profiles and summarize the projects in their repos
         and contributions from their PRs.
     - Use the job application URL to determine the ATS the employer is using for
@@ -67,31 +75,7 @@ emergencies.
      resume chosen.
 8. Save a transcript of this session to `.research/specific-company-$DATE.yaml`
    where `$DATE` is the time that you finished your analysis as a Unix
-   timestamp. The schema for the YAML is shown below:
-
-   ```yaml
-   sources:
-     # sources.github: A list of GitHub repos and projects analyzed.
-     github:
-     - https://github.com/user1/repo1
-     - https://github.com/user2/repo2
-     - https://github.com/user3/repo3
-     # sources.linkedin: LinkedIn profiles analyzed.
-     linkedin:
-     - https://linkedin.com/in/profile1
-     - https://linkedin.com/in/profile2
-     - https://linkedin.com/in/profile3
-     # sources.blind: Blind posts used during research.
-     blind:
-     - https://teamblind.com/post1
-     - https://teamblind.com/post2
-     - https://teamblind.com/post3
-     # sources.other: Other websites used during research.
-     other:
-     - https://website.example/post1
-     - https://website.example/post2
-     - https://website.example/post3
-   ```
+   timestamp.
 
 ## Example Workflow
 
@@ -138,13 +122,21 @@ test` to view it.
 📝 Summary
 =================
 
-💁 Employer Info
+💁 Role Info
 ----------------
 
 Here's a quick summary of the perfect candidate for this role:
 
 # Insert a one paragraph summary of the perfect candidate based on the
 information retrieved during analysis
+
+These people on LinkedIn are currently doing the role; you might want to check
+them out:
+
+# List LinkedIn profiles; DO NOT PRINT NAMES
+
+🤖 ATS Summary
+---------------
 
 It looks like they're using the $ATS_NAME ATS to triage applications. Here are
 some recommendations to help you get through their filters:
@@ -164,7 +156,7 @@ Here are all of the sources I used in my analysis:
 - Source n
 
 
-📕 Recommended Experience
+🏆 Recommended Experience
 -------------------------
 
 I used the `consulting` resume partial to generate this. Here's a summary of how
